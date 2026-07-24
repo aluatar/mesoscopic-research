@@ -14,7 +14,9 @@ The phrase I would like you to keep in mind is this: at mesoscopic scales, the b
 
 ## Slide 2 — At a nanometre, the boundary is no longer a line
 
-Here is the whole problem in one picture. In a local Maxwell calculation, the metal begins at a perfectly sharp plane. The induced charge is mathematically confined to that plane, even though the bulk permittivity may be dispersive and lossy.
+Here is the whole problem in one literature figure. Gonçalves and co-workers place three descriptions side by side. On the right, classical Maxwell theory uses a local bulk permittivity and a perfectly sharp density step. On the left, a microscopic description retains atomic structure, quantum confinement, and Landau damping. In the middle, the Feibelman surface response keeps the leading electronic length scale while leaving the surrounding electrodynamics macroscopic.
+
+In a local Maxwell calculation, the metal begins at a perfectly sharp plane. The induced charge is mathematically confined to that plane, even though the bulk permittivity may be dispersive and lossy.
 
 At a scale of one or a few nanometres, that idealization becomes visible. The equilibrium electron density can extend past the ionic surface. The induced charge has a finite centroid. The current can have a longitudinal component, and in a sufficiently narrow junction electrons can cross the gap.
 
@@ -51,6 +53,8 @@ Overall particle size is not the only relevant scale. What matters is the smalle
 The natural comparisons are quantities such as \(q\ell\), \(\ell/R\), \(\ell/g\), and \(\ell/t\). Here \(\ell\) might mean a screening length, a spill-out width, a Fermi wavelength, a mean free path, a tunnelling decay length, or an exciton radius.
 
 This is why a one-hundred-nanometre antenna with a one-nanometre gap may exhibit stronger nonlocal effects than a much smaller isolated particle. The gap produces Fourier components with wavevector of order one over the gap size.
+
+The literature result on the right makes the size dependence concrete. Toscano and co-workers plot the surface-plasmon energy against inverse nanowire radius. Their self-consistent hydrodynamic calculation gives different trends for sodium and silver, because spill-out and interband screening compete differently in the two materials. The lower panel also shows a Bennett surface mode that has no counterpart in a one-resonance local picture. The point is not that every system follows these curves, but that \(1/R\) exposes physics that the bulk dielectric function cannot encode.
 
 It is also why a resonance shift by itself is not a unique signature. The same shift could come from a surface centroid, a geometric error, a spacer thickness, a facet, chemistry, or interband screening. Strong evidence normally requires more than one observable—ideally one reactive quantity and one dissipative or transport quantity.
 
@@ -124,6 +128,8 @@ The perpendicular parameter \(d_\perp\) is the centroid of the induced charge me
 
 These parameters are complex and frequency dependent. Their real parts primarily affect phase and resonance energy. Their imaginary parts carry surface-enabled loss. They are not universal lengths: they depend on material, crystallographic surface, environment, frequency, and potentially wavevector.
 
+The two experimental panels on the right are a useful reality check. Yang and co-workers retrieve both the real and imaginary parts of \(d_\perp\) from families of film-coupled resonators. Thus the compact surface quantity is constrained by measured spectral shifts and losses, rather than being introduced only as a diagrammatic centroid.
+
 The advantage is enormous. Instead of resolving angstrom-scale charge density in every device geometry, we can insert two surface functions into modified Maxwell boundary conditions.
 
 The price is that the compression is normally first order and interface local. Strong curvature, multiple facets, charge transfer, or pronounced \(q\) dependence may require more information.
@@ -145,6 +151,8 @@ Nevertheless, this experiment supports the central mesoscopic idea: a complex su
 The next distinction is subtle but important.
 
 A nonzero surface centroid does not necessarily imply dynamical nonlocality. If the equilibrium electron density changes smoothly across the ionic boundary, the induced charge already occupies a finite-width region. That produces spill-out or spill-in and a finite \(d\) parameter even if the response is local at every point in that inhomogeneous profile.
+
+The two profiles from Toscano and co-workers show the distinction directly. In the self-consistent model, panel b, the equilibrium electron density has a diffuse tail and the induced charge spreads across the ionic radius. In the hard-wall model, panel c, the equilibrium density is a step and the induced charge is forced against that artificial boundary.
 
 Finite electron-gas compressibility is a different effect. It is dynamical and produces longitudinal density motion.
 
@@ -196,6 +204,8 @@ The familiar Drude term accelerates the current in the electric field. The press
 
 In the simplest closure, the parameter \(\beta\) is related to the Fermi velocity. GNOR adds a diffusion-like term to represent additional damping.
 
+The figure on the right is the original sphere comparison from the 2014 GNOR paper by Mortensen and co-workers. In panel a, hydrodynamic pressure shifts the dipole resonance relative to the local result, with the shift growing approximately as \(\beta/R\). In panel b, adding diffusion produces both a shift and a size-dependent broadening. The sequence from six- to two-nanometre radius makes the central modelling advantage visible: one continuum closure changes a measurable spectrum systematically with size.
+
 The appeal is computational. Density and current remain continuum fields, so they can be coupled to Maxwell solvers for structures much larger than an atomistic calculation.
 
 The model is still effective. The pressure closure, damping, and boundary condition must be calibrated, and the basic version contains no detailed chemistry or interband structure.
@@ -231,6 +241,8 @@ Self-consistent hydrodynamics, often called quantum hydrodynamic theory or SC–
 First, an orbital-free energy functional is minimized to obtain the equilibrium density \(n_0(\mathbf r)\). Second, density and current are linearized around that diffuse profile. Third, the induced fields are coupled back to Maxwell electrodynamics.
 
 This creates a useful hierarchy. Hard-wall HDM has nonlocal dynamics but a sharp equilibrium density. SC–HDM has nonlocal dynamics and a diffuse equilibrium density. TDDFT retains orbitals and microscopic transitions as well.
+
+Figure 1(a) from Toscano and co-workers shows what this hierarchy does to an actual spectrum. For a two-nanometre sodium nanowire, the local response, hard-wall hydrodynamics, and self-consistent hydrodynamics place the main resonance at visibly different energies. The charge-density insets show why: allowing the equilibrium density to spill out changes where the screening charge lives. The self-consistent calculation also produces a higher-energy Bennett mode, so the difference is not only a rigid shift of one peak.
 
 The self-consistent model is more physical at the surface, but it is not parameter free. Results depend on the kinetic-energy functional, the treatment of the density tail, interband calibration, and the numerical resolution of very different length scales.
 
