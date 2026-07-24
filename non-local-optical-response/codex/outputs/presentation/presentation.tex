@@ -128,39 +128,70 @@
 \end{frame}
 
 \begin{frame}{Classical local optics: the successful baseline}
+\footnotesize
 \begin{columns}[T,onlytextwidth]
   \column{0.49\textwidth}
   \begin{block}{Local constitutive law}
-    \begin{align*}
-      \mathbf P(\mathbf r,\omega)&=\varepsilon_0\chi(\omega)\mathbf E(\mathbf r,\omega),\\
-      \mathbf J(\mathbf r,\omega)&=\sigma(\omega)\mathbf E(\mathbf r,\omega),\\
-      \varepsilon_m(\omega)&=\varepsilon_\infty-\frac{\omega_p^2}{\omega(\omega+i\gamma)}.
-    \end{align*}
+    \[
+      \mathbf P=\varepsilon_0\chi(\omega)\mathbf E,\qquad
+      \mathbf J=\sigma(\omega)\mathbf E,
+    \]
+    \[
+      \varepsilon_m=\varepsilon_\infty-\frac{\omega_p^2}{\omega(\omega+i\gamma)}.
+    \]
+  \end{block}
+  \begin{block}{The controlled scale separation}
+    $\omega\tau_e\ll1$ and $\ell_e/L_{\rm field}\ll1$, with
+    $\tau_e\sim\omega_p^{-1}$ or $\hbar/E_F$ and $\ell_e$ a screening / spill-out scale.
   \end{block}
   \begin{itemize}
     \item Geometry, radiation, retardation, and bulk absorption can all be treated accurately.
-    \item The induced charge is assigned to a mathematically sharp interface.
-    \item Refining the mesh improves the solution, not the constitutive law.
+    \item The induced charge is assigned to a mathematically sharp interface; refining the mesh does not change that constitutive assumption.
   \end{itemize}
   \column{0.46\textwidth}
   \centering
   \begin{tikzpicture}[x=1cm,y=0.97cm]
-    \fill[softblue] (0,0) rectangle (5.3,3.55);
-    \fill[orange!20] (2.8,0) rectangle (5.3,3.55);
-    \draw[blue!75!black,very thick] (2.8,0)--(2.8,3.55);
-    \foreach \y in {0.55,0.95,...,3.0}{\fill[red] (2.8,\y) circle (0.055);}
-    \draw[teal!80!black,very thick,->] (0.45,1.8)--(2.35,1.8);
-    \draw[teal!80!black,very thick,->] (3.25,1.8)--(4.9,1.8);
-    \node[font=\scriptsize] at (1.4,3.15){dielectric};
-    \node[font=\scriptsize] at (4.05,3.15){metal};
-    \node[font=\scriptsize,align=center,text width=4.6cm] at (2.65,0.28)
-      {all induced charge sits at one reference plane};
+    \fill[softblue] (0,0) rectangle (5.3,3.0);
+    \fill[orange!20] (2.8,0) rectangle (5.3,3.0);
+    \draw[blue!75!black,very thick] (2.8,0)--(2.8,3.0);
+    \foreach \y in {0.5,0.9,...,2.55}{\fill[red] (2.8,\y) circle (0.055);}
+    \draw[teal!80!black,very thick,->] (0.45,1.5)--(2.35,1.5);
+    \draw[teal!80!black,very thick,->] (3.25,1.5)--(4.9,1.5);
+    \node[font=\scriptsize] at (1.4,2.65){dielectric};
+    \node[font=\scriptsize] at (4.05,2.65){metal};
+    \node[font=\scriptsize,align=center,text width=4.3cm] at (2.65,0.37)
+      {induced charge at one\\reference plane};
   \end{tikzpicture}
   \begin{alertblock}{The hidden approximation}
     The material remembers frequency, but not wavevector, surface structure, or connectivity.
   \end{alertblock}
 \end{columns}
 \vspace{-0.15em}
+\end{frame}
+
+\begin{frame}{A large antenna can contain an atomic-scale optical gap}
+\small
+\begin{columns}[T,onlytextwidth]
+  \column{0.54\textwidth}
+  \centering
+  \includegraphics[
+    width=0.76\linewidth,
+    height=0.52\textheight,
+    keepaspectratio,
+    trim=305bp 258bp 0bp 0bp,
+    clip
+  ]{assets/mortensen2014_fig1.jpg}
+  \shortcite{N. A. Mortensen et al., Nat. Commun. 5, 3809 (2014), Fig. 1(b).}
+  \column{0.42\textwidth}
+  \begin{block}{The geometric scales}
+    $R$: radius / curvature;\quad $g$: facing-surface dielectric gap;\quad
+    $t$: thickness of a film, sheet, or spacer stack.
+  \end{block}
+  \begin{alertblock}{Why the gap wins}
+    A wide antenna can still have $g,t\sim1$ nm, producing $q\sim1/g$ or $q_z\sim1/t$.
+  \end{alertblock}
+  \key{The relevant size is the shortest dimension sampled by the field, not the overall footprint.}
+\end{columns}
 \end{frame}
 
 \begin{frame}{Breakdown is controlled by the smallest field scale}
@@ -192,6 +223,7 @@
 \end{frame}
 
 \begin{frame}{Nanoparticles and 2D materials expose different nonlocalities}
+\scriptsize
 \begin{columns}[T,onlytextwidth]
   \column{0.48\textwidth}
   \begin{block}{Finite metal nanoparticles}
@@ -215,6 +247,7 @@
       \item The response is naturally $\sigma_{2D}(q,\omega)$ or $\chi_{2D}(q,\omega)$.
       \item Large-$q$ plasmons sample the Fermi surface and Landau-damping continuum.
       \item Exciton dispersion and finite coherence length make a local sheet susceptibility incomplete.
+      \item Finite out-of-plane polarizability, $J_z(z)$, and spill-out shift the transverse screening centroid, especially near substrates or in TM near fields.
     \end{itemize}
   \end{alertblock}
   \centering
@@ -223,6 +256,8 @@
     \draw[blue!75!black,thick,decorate,decoration={brace,amplitude=5pt}] (-1.5,0.25)--(1.5,0.25);
     \node[font=\scriptsize] at (0,0.75){in-plane nonlocality: $q$ matters};
     \draw[orange,very thick,->] (-1.6,-0.55)--(1.6,-0.55);
+    \draw[red!75!black,very thick,->] (0,-0.65)--(0,0.58);
+    \node[font=\scriptsize,anchor=west] at (0.16,0.48){$J_z,\,P_z$};
   \end{tikzpicture}
 \end{columns}
 \shortcite{M. Jablan et al., Phys. Rev. B 80, 245435 (2009); M. B. Lundeberg et al., Science 357, 187 (2017); H. C. Nerl et al., Nat. Commun. 15, 1 (2024).}
@@ -263,35 +298,6 @@
   \end{alertblock}
 \end{columns}
 \shortcite{E. Runge and E. K. U. Gross, Phys. Rev. Lett. 52, 997 (1984); G. Onida et al., Rev. Mod. Phys. 74, 601 (2002).}
-\end{frame}
-
-\begin{frame}{Microscopic quantum models do not scale}
-\begin{columns}[T,onlytextwidth]
-  \column{0.47\textwidth}
-  \begin{block}{What becomes expensive}
-    \begin{itemize}
-      \item thousands of atoms and thousands of active electrons;
-      \item many frequencies, shapes, gaps, substrates, and disorder realizations;
-      \item long-range electromagnetic domains around a microscopic region;
-      \item open-system transport or many-body linewidths.
-    \end{itemize}
-  \end{block}
-  \column{0.49\textwidth}
-  \begin{alertblock}{The transfer problem}
-    A microscopic spectrum answers one geometry. A device model needs a compact response object that can be reused in BEM, FEM, or an integral solver.
-  \end{alertblock}
-  \vspace{0.35em}
-  \begin{tikzpicture}[node distance=0.25cm,every node/.style={font=\scriptsize,align=center}]
-    \node[draw=teal,fill=softteal,rounded corners,minimum width=2.1cm,minimum height=0.7cm] (a){microscopic\\calculation};
-    \node[draw=orange,fill=softorange,rounded corners,minimum width=2.1cm,minimum height=0.7cm,right=of a] (b){compact\\response};
-    \node[draw=blue,fill=softblue,rounded corners,minimum width=2.1cm,minimum height=0.7cm,right=of b] (c){device-scale\\electrodynamics};
-    \draw[-{Latex},thick] (a)--(b);
-    \draw[-{Latex},thick] (b)--(c);
-  \end{tikzpicture}
-  \vspace{0.4em}
-  \key{Mesoscopic modelling begins at this compression step.}
-\end{columns}
-\shortcite{M. Chaudhary and H.-C. Weissker, Nat. Commun. 15, 9225 (2024).}
 \end{frame}
 
 \begin{frame}{Atoms reorganize the optical spectrum}
@@ -337,8 +343,37 @@
 \end{columns}
 \end{frame}
 
+\begin{frame}{Microscopic quantum models do not scale}
+\begin{columns}[T,onlytextwidth]
+  \column{0.47\textwidth}
+  \begin{block}{What becomes expensive}
+    \begin{itemize}
+      \item thousands of atoms and thousands of active electrons;
+      \item many frequencies, shapes, gaps, substrates, and disorder realizations;
+      \item long-range electromagnetic domains around a microscopic region;
+      \item open-system transport or many-body linewidths.
+    \end{itemize}
+  \end{block}
+  \column{0.49\textwidth}
+  \begin{alertblock}{The transfer problem}
+    A microscopic spectrum answers one geometry. A device model needs a compact response object that can be reused in BEM, FEM, or an integral solver.
+  \end{alertblock}
+  \vspace{0.35em}
+  \begin{tikzpicture}[node distance=0.25cm,every node/.style={font=\scriptsize,align=center}]
+    \node[draw=teal,fill=softteal,rounded corners,minimum width=2.1cm,minimum height=0.7cm] (a){microscopic\\calculation};
+    \node[draw=orange,fill=softorange,rounded corners,minimum width=2.1cm,minimum height=0.7cm,right=of a] (b){compact\\response};
+    \node[draw=blue,fill=softblue,rounded corners,minimum width=2.1cm,minimum height=0.7cm,right=of b] (c){device-scale\\electrodynamics};
+    \draw[-{Latex},thick] (a)--(b);
+    \draw[-{Latex},thick] (b)--(c);
+  \end{tikzpicture}
+  \vspace{0.4em}
+  \key{Mesoscopic modelling begins at this compression step.}
+\end{columns}
+\shortcite{M. Chaudhary and H.-C. Weissker, Nat. Commun. 15, 9225 (2024).}
+\end{frame}
+
 \begin{frame}{Before tunnelling, the screening charge has already moved}
-\footnotesize
+\scriptsize
 \begin{columns}[T,onlytextwidth]
   \column{0.60\textwidth}
   \includegraphics[width=\linewidth,height=0.64\textheight,keepaspectratio]{assets/zhu2016_fig1.jpg}
@@ -347,8 +382,8 @@
   \begin{block}{Three gap regimes}
     \begin{enumerate}
       \item \textbf{Local:} the geometric and optical gaps coincide.
-      \item \textbf{Nonlocal:} screening charge shifts by a finite centroid, changing the optical gap.
-      \item \textbf{Tunnelling:} current crosses the gap and charge-transfer modes appear.
+      \item \textbf{Nonlocal:} at $d\lesssim d_{\rm NL}\sim10\delta_F\approx2$--$5$ nm, the screening centroid shifts by the Fermi-scale distance $\delta_F$, changing the optical gap.
+      \item \textbf{Tunnelling:} below the threshold $d_{\rm th}\lesssim1$ nm, an ac conductance $\sigma_{\rm th}\simeq c\varepsilon_0/\lambda$ crosses the gap and charge-transfer modes appear.
     \end{enumerate}
   \end{block}
   \begin{alertblock}{The key distinction}
@@ -367,7 +402,12 @@
       \frac{\int z\,\rho_{\rm ind}(z,\omega)\,dz}
            {\int \rho_{\rm ind}(z,\omega)\,dz}.
     \]
-    $d_\parallel(\omega)$ similarly encodes the centroid of the tangential-current response.
+    \[
+      d_\parallel(\omega)=
+      \frac{\int z\,\partial_zJ_x(z,\omega)\,dz}
+           {\int \partial_zJ_x(z,\omega)\,dz},
+      \quad J_x\parallel\text{ interface}.
+    \]
   \end{block}
   \begin{itemize}
     \item $\operatorname{Re}d$ changes phase and resonance energy.
@@ -444,18 +484,26 @@
   \node[draw=orange,fill=softorange,rounded corners,minimum width=2.45cm,minimum height=1.0cm,right=of a] (b)
     {take response moments\\$d_\perp(\omega),d_\parallel(\omega)$};
   \node[draw=blue,fill=softblue,rounded corners,minimum width=2.45cm,minimum height=1.0cm,right=of b] (c)
-    {modified boundary conditions\\BEM / FEM / scattering};
+    {surface-corrected\\boundary conditions\\BEM / FEM / scattering};
   \node[draw=red,fill=softred,rounded corners,minimum width=2.45cm,minimum height=1.0cm,right=of c] (d)
     {many device geometries\\shift, phase, linewidth};
   \foreach \x/\y in {a/b,b/c,c/d}{\draw[-{Latex},very thick,blue!65!black] (\x)--(\y);}
 \end{tikzpicture}
-\vspace{0.8em}
+\vspace{0.55em}
 \begin{columns}[T,onlytextwidth]
-  \column{0.48\textwidth}
+  \column{0.50\textwidth}
   \begin{block}{Why this is mesoscopic}
     The atomic-scale calculation is retained through a small number of frequency-dependent surface functions rather than through every orbital.
   \end{block}
-  \column{0.48\textwidth}
+  \begin{block}{Leading modified boundary conditions}
+    \scriptsize With $[\![f]\!]=f_{\rm d}-f_{\rm m}$,
+    \[
+      [\![\mathbf E_\parallel]\!]=-d_\perp\nabla_\parallel[\![E_\perp]\!],
+      \qquad
+      [\![D_\perp]\!]=d_\parallel\nabla_\parallel\!\cdot\![\![\mathbf D_\parallel]\!] .
+    \]
+  \end{block}
+  \column{0.46\textwidth}
   \begin{alertblock}{Where the compression can fail}
     Strong curvature, finite $q$ dependence, multiple facets, chemistry, or charge transfer can make a planar first-order $d$ insufficient.
   \end{alertblock}
@@ -487,6 +535,7 @@
 \end{frame}
 
 \begin{frame}{A surface correction is not yet a bulk nonlocal model}
+\footnotesize
 \begin{columns}[T,onlytextwidth]
   \column{0.47\textwidth}
   \begin{block}{Surface-response route}
@@ -508,16 +557,17 @@
       \;\hbox{depends on}\;
       \nabla n(\mathbf r,\omega),\ \nabla\!\cdot\!\mathbf J.
     \]
-    Needed when longitudinal density motion and finite compressibility inside the metal matter.
+    Needed when $L_{\rm in}\sim\ell_{\rm scr}$: the interior field changes over a screening length and excites longitudinal density motion.
   \end{alertblock}
   \begin{itemize}
     \item retains longitudinal modes and wavevector dependence;
+    \item needed for few-nm radii or films, high-order / high-$q$ modes, and extreme gap fields penetrating the metal;
     \item requires an electronic closure and boundary treatment;
     \item leads naturally to quantum hydrodynamics.
   \end{itemize}
 \end{columns}
-\vspace{0.3em}
-\key{The two routes are complementary compressions of the same microscopic response.}
+\vspace{0.1em}
+\key{Complementary compressions of the same microscopic response.}
 \end{frame}
 
 \begin{frame}{Quantum hydrodynamics keeps density and current}

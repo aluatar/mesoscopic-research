@@ -40,17 +40,25 @@ The point is not to crown one model as the winner. It is to understand what each
 
 Let me first be fair to classical local response. The polarization or current at a point is proportional to the electric field at that same point. The coefficient can depend on frequency, so the model still contains bulk dispersion and absorption. It can also be combined with an accurate geometry, retardation, radiation, substrates, and sophisticated numerical solvers.
 
-For structures that vary slowly on electronic length scales, this is not merely convenient; it is the controlled macroscopic limit.
+For structures that vary slowly on electronic length scales, this is not merely convenient; it is the controlled macroscopic limit. There are two comparisons behind that statement. The field variation time, of order \(1/\omega\), must be long compared with an electronic response time \(\tau_e\), such as \(1/\omega_p\) or the Fermi time \(\hbar/E_F\). The smallest length over which the field changes, \(L_{\rm field}\), must also be large compared with an electronic screening or surface length \(\ell_e\), such as the Thomas–Fermi length, Fermi wavelength, or spill-out width. In shorthand, the local expansion requires \(\omega\tau_e\ll1\) and \(\ell_e/L_{\rm field}\ll1\).
 
 The approximation is hidden at the interface. The material profile jumps abruptly, and all induced surface charge is assigned to one mathematical plane. No amount of mesh refinement changes that assumption. A finer mesh gives a more accurate solution of the local constitutive law; it does not create spatial dispersion, spill-out, or tunnelling.
 
 This distinction between numerical convergence and physical convergence will return several times.
 
-## Slide 5 — Breakdown is controlled by the smallest field scale
+## Slide 5 — A large antenna can contain an atomic-scale optical gap
+
+This nanowire-dimer figure gives names to the scales that will recur throughout the talk. \(R\) is the particle radius or local curvature scale. \(g\) is the dielectric separation between the two facing metal surfaces. \(t\), used on the next slide, is the physical thickness of a thin metal film, conducting sheet, or spacer stack.
+
+The central lesson is that an object can be optically large overall and still create an atomic-scale near field. A hundred-nanometre antenna with a one-nanometre gap has Fourier components with \(q\sim1/g\). A nanometre-thick film similarly confines the field in the normal direction with \(q_z\sim1/t\). Those are the scales that must be compared with the electronic lengths introduced on the previous slide.
+
+So from now on, “small system” will not mean only a small radius. It will mean a system that produces a small *field-variation* length.
+
+## Slide 6 — Breakdown is controlled by the smallest field scale
 
 Overall particle size is not the only relevant scale. What matters is the smallest length over which the optical field changes.
 
-The natural comparisons are quantities such as \(q\ell\), \(\ell/R\), \(\ell/g\), and \(\ell/t\). Here \(\ell\) might mean a screening length, a spill-out width, a Fermi wavelength, a mean free path, a tunnelling decay length, or an exciton radius.
+The natural comparisons are quantities such as \(q\ell\), \(\ell/R\), \(\ell/g\), and \(\ell/t\). Here \(\ell\) might mean a screening length, a spill-out width, a Fermi wavelength, a mean free path, a tunnelling decay length, or an exciton radius. To repeat the notation, \(g\) is the facing-surface gap and \(t\) is the thickness of the confined film, sheet, or spacer stack.
 
 This is why a one-hundred-nanometre antenna with a one-nanometre gap may exhibit stronger nonlocal effects than a much smaller isolated particle. The gap produces Fourier components with wavevector of order one over the gap size.
 
@@ -58,7 +66,7 @@ The literature result on the right makes the size dependence concrete. Toscano a
 
 It is also why a resonance shift by itself is not a unique signature. The same shift could come from a surface centroid, a geometric error, a spacer thickness, a facet, chemistry, or interband screening. Strong evidence normally requires more than one observable—ideally one reactive quantity and one dissipative or transport quantity.
 
-## Slide 6 — Nanoparticles and 2D materials expose different nonlocalities
+## Slide 7 — Nanoparticles and 2D materials expose different nonlocalities
 
 There are at least two distinct routes to the breakdown of a local description.
 
@@ -66,29 +74,21 @@ For a finite metal nanoparticle, the surface-to-volume ratio grows as the radius
 
 For an atomically thin material, nonlocality is present in the in-plane response from the beginning. A graphene sheet is more naturally described by \(\sigma_{2D}(q,\omega)\) than by a purely frequency-dependent sheet conductivity. Large-\(q\) plasmons approach the Landau-damping continuum. In a semiconductor monolayer, exciton dispersion and finite coherence length similarly make \(\chi_{2D}(q,\omega)\) the relevant object.
 
+There is also a transverse qualification that is easy to lose in an ideal 2D-sheet model. A real monolayer has a finite out-of-plane polarizability. The transverse current \(J_z(z)\), and any electronic spill-out on the two sides of the ionic layer, place the screening charge at a finite height. A substrate, encapsulation, or a strongly TM-polarized near field can therefore change this transverse centroid even while the dominant transport current remains in-plane.
+
 These systems are different, but both tell us that frequency alone is no longer enough.
 
-## Slide 7 — The microscopic route: orbitals, screening, and correlations
+## Slide 8 — The microscopic route: orbitals, screening, and correlations
 
 The most direct answer is to calculate the electronic structure microscopically.
 
 Hartree–Fock gives orbitals with exact exchange but misses dynamical correlation. Density-functional theory provides a ground-state density and practical orbitals. Time-dependent DFT or the random-phase approximation gives a dynamical susceptibility. GW and the Bethe–Salpeter equation improve quasiparticle energies and excitons, while nonequilibrium Green functions are natural for open boundaries and transport.
 
+The acronyms on the right carry distinct approximations. In GW, the electronic self-energy is approximated as \(\Sigma=iGW\); in the common one-shot \(G_0W_0\) version, \(G\) and the screened interaction \(W\) start from DFT, and vertex corrections are normally neglected while \(W\) is often built in RPA. The Bethe–Salpeter equation, BSE, then treats an electron–hole pair using those GW quasiparticles with a screened direct attraction and bare exchange; a static screening kernel and often the Tamm–Dancoff approximation are used. NEGF describes open systems through one-particle Green functions and lead self-energies. In practice it still needs a closure—often DFT/Hartree mean field or a selected perturbative self-energy—and is frequently solved in steady state.
+
 The common feature is that the response depends on two positions. A perturbation at \(\mathbf r'\) produces density at \(\mathbf r\). That two-point susceptibility can contain atomic structure, transitions, surface states, spill-out, screening, and—with the appropriate formalism—charge transfer.
 
 These methods therefore provide the reference against which effective models should be judged. But DFT or Hartree–Fock should not be described as exact many-body solutions; they are levels in a hierarchy of microscopic approximations.
-
-## Slide 8 — Microscopic quantum models do not scale
-
-The problem is scale.
-
-A realistic nanophotonic device may require thousands or millions of atoms, many frequencies, multiple geometries, roughness realizations, substrates, and open electromagnetic space. A microscopic calculation may answer one carefully chosen structure, but it rarely supports the parameter sweep needed to design a device or fit an experiment.
-
-There is also a transfer problem. A calculated absorption spectrum is tied to one geometry. What we would really like to export is a compact material response that can be reused in a boundary-element, finite-element, or integral-equation solver.
-
-That compression step is where mesoscopic modelling begins. We calculate the expensive electronic structure only where it is indispensable, then encode its observable effect in a smaller response object.
-
-The next two slides show both the power and the limitation of the microscopic route.
 
 ## Slide 9 — Atoms reorganize the optical spectrum
 
@@ -104,27 +104,45 @@ But it also exposes the computational boundary. Even a calculation involving rou
 
 Figure 3 from the same paper plots the localized plasmon energy against inverse radius, from Ag\(_4\) to Ag\(_{923}\).
 
+Let me unpack the figure rather than treating it as a generic size plot. The lower horizontal axis is \(1/R\) in inverse nanometres, so moving right means decreasing cluster radius; the upper axis translates the same positions into number of atoms. The vertical axis is the energy of the dominant localized surface-plasmon resonance. The hollow coloured symbols are experimental datasets from the papers listed in the upper-left legend. The squares are the TDDFT+\(U\) calculations in this work: blue for icosahedral clusters, red for fcc-based clusters, and green for the small-cluster sequence. The coloured hatched bands show the calculated spectral spread within each structural family. Purple and red crosses label other calculated icosahedral and fcc-based cluster results, while the black crosses identify the lowest-energy structure at each size.
+
 There is a systematic size trend, but it is not one universal line. The smallest clusters retain discrete structure. The larger clusters approach a collective resonance, while different structural families remain separated at comparable size.
 
 This matters for phenomenological size corrections. If I fit one radius-dependent dielectric function to these data, that fit would absorb quantum confinement, atomic geometry, and \(d\)-electron screening into one number. It might interpolate one dataset while giving the wrong physical interpretation.
 
 So the microscopic result should be used as a calibration benchmark. The next question is whether a smaller set of surface or nonlocal response functions can reproduce the part of the spectrum that matters at larger scales.
 
-## Slide 11 — Before tunnelling, the screening charge has already moved
+## Slide 11 — Microscopic quantum models do not scale
+
+The two previous examples show why the microscopic route is indispensable—but also why it cannot be the whole device model.
+
+A realistic nanophotonic device may require thousands or millions of atoms, many frequencies, multiple geometries, roughness realizations, substrates, and open electromagnetic space. A microscopic calculation may answer one carefully chosen structure, but it rarely supports the parameter sweep needed to design a device or fit an experiment.
+
+There is also a transfer problem. A calculated absorption spectrum is tied to one geometry. What we would really like to export is a compact material response that can be reused in a boundary-element, finite-element, or integral-equation solver.
+
+That compression step is where mesoscopic modelling begins. We calculate the expensive electronic structure only where it is indispensable, then encode its observable effect in a smaller response object.
+
+## Slide 12 — Before tunnelling, the screening charge has already moved
 
 This regime diagram from Zhu and co-workers is a useful bridge between atomistic and mesoscopic descriptions.
 
-At large gaps, local Maxwell theory describes the bonding dimer plasmon with a geometric dielectric gap. As the gap enters the few-nanometre range, the centroid of the screening charge shifts away from the nominal interface. The optical gap is then different from the geometric gap even though the bodies remain electronically separated.
+Read the horizontal axis from right to left as the dimer gap \(d\) closes. On the right, in the red local regime, the orange disks are metal particles separated by the geometric dielectric gap \(d\). The dashed boundary at \(d_{\rm NL}\) marks the beginning of the nonlocal regime. The paper estimates \(d_{\rm NL}\sim10\delta_F\approx2\)–\(5\) nm: \(\delta_F\) is the Fermi-scale displacement of the screening-charge centroid, indicated by the orange shell around each disk. At these gaps the bodies are still electronically separated, but their *optical* separation is no longer the geometric \(d\).
+
+The next dashed boundary, \(d_{\rm th}\lesssim1\) nm, is the threshold tunnelling distance. The top annotation defines the corresponding threshold optical conductance \(\sigma_{\rm th}\simeq c\varepsilon_0/\lambda\). To the left of it, the two yellow density clouds overlap and the red arrow \(J_\omega\) is an optical-frequency tunnelling current. The upper and lower red curves are schematic plasmon branches: the dashed parts show the continuation that a non-tunnelling description would predict, while the solid branches change once the conductive junction develops.
 
 At still smaller gaps, wavefunctions overlap and current crosses the junction. Charge-transfer plasmons can appear before mechanical contact.
 
 These are two different failures. A shifted charge centroid can be represented by a surface response or, less specifically, by hydrodynamics. A conductive gap cannot. Once electrons traverse the gap, the topology of the electromagnetic boundary problem has changed, and a transport-calibrated model is required.
 
-## Slide 12 — Compressing a quantum interface into two response functions
+## Slide 13 — Compressing a quantum interface into two response functions
 
 Feibelman’s idea is to replace the full microscopic surface layer by its leading moments.
 
-The perpendicular parameter \(d_\perp\) is the centroid of the induced charge measured from a stated reference plane. The parallel parameter \(d_\parallel\) similarly describes the tangential-current response.
+The perpendicular parameter \(d_\perp\) is the centroid of the induced charge measured from a stated reference plane. The parallel parameter is the corresponding first moment of the *divergence* of a tangential current. For a planar interface and current \(J_x\), the slide writes
+\[
+d_\parallel(\omega)=\frac{\int z\,\partial_zJ_x(z,\omega)\,dz}{\int\partial_zJ_x(z,\omega)\,dz}.
+\]
+This definition matters: \(d_\parallel\) is not the ordinary centroid of a uniform in-plane current. It measures where the tangential surface-current response is localized.
 
 These parameters are complex and frequency dependent. Their real parts primarily affect phase and resonance energy. Their imaginary parts carry surface-enabled loss. They are not universal lengths: they depend on material, crystallographic surface, environment, frequency, and potentially wavevector.
 
@@ -134,7 +152,7 @@ The advantage is enormous. Instead of resolving angstrom-scale charge density in
 
 The price is that the compression is normally first order and interface local. Strong curvature, multiple facets, charge transfer, or pronounced \(q\) dependence may require more information.
 
-## Slide 13 — The surface response is complex, dispersive, and measurable
+## Slide 14 — The surface response is complex, dispersive, and measurable
 
 Yang and co-workers demonstrated that this is not only a theoretical construction.
 
@@ -146,7 +164,7 @@ The retrieval is still not automatically transferable. It depends on the chosen 
 
 Nevertheless, this experiment supports the central mesoscopic idea: a complex surface response can be an observable material property rather than an arbitrary numerical correction.
 
-## Slide 14 — Spill-out starts in the ground state
+## Slide 15 — Spill-out starts in the ground state
 
 The next distinction is subtle but important.
 
@@ -160,11 +178,21 @@ The two contributions can reinforce or cancel. For some surfaces, spill-out shif
 
 This is why one should not equate every nonclassical shift with one generic “nonlocal correction.” The sign and magnitude depend on which microscopic mechanism the model retains.
 
-## Slide 15 — Compute the interface once; reuse it in Maxwell solvers
+## Slide 16 — Compute the interface once; reuse it in Maxwell solvers
 
 This slide shows the multiscale pipeline suggested by the surface-response approach.
 
 We first perform a microscopic calculation for a representative planar interface. From the induced charge and current, we take the appropriate moments and obtain \(d_\perp(\omega)\) and \(d_\parallel(\omega)\). Those functions enter modified boundary conditions in a Maxwell solver, which can then treat many device geometries.
+
+The displayed relations show the leading corrections. With \([\![f]\!]=f_{\rm d}-f_{\rm m}\), the tangential electric field is no longer exactly continuous:
+\[
+[\![\mathbf E_\parallel]\!]=-d_\perp\nabla_\parallel[\![E_\perp]\!].
+\]
+Likewise, the normal displacement jump is linked to the in-plane variation of tangential displacement:
+\[
+[\![D_\perp]\!]=d_\parallel\nabla_\parallel\!\cdot\![\![\mathbf D_\parallel]\!].
+\]
+They vanish in the local sharp-interface limit. Their gradients also make the scope visible: a spatially uniform planar field does not by itself reveal a first-order \(d\)-parameter correction.
 
 This is mesoscopic in a very literal sense. The atomic-scale information is neither discarded nor reproduced everywhere. It is compressed into a reusable boundary response.
 
@@ -172,7 +200,7 @@ The possible failure modes are also clear. The planar parameter may not transfer
 
 That motivates the hydrodynamic route.
 
-## Slide 16 — Tunnelling changes the topology of the boundary
+## Slide 17 — Tunnelling changes the topology of the boundary
 
 Before moving to hydrodynamics, let me close the nanogap story.
 
@@ -186,7 +214,7 @@ This pairing of optics with transport is powerful because it removes much of the
 
 It also defines a firm model boundary. Surface parameters and hard-wall hydrodynamics can correct separated polarizable bodies. A conductive junction needs a quantum-corrected model, NEGF, or another response calibrated to transport.
 
-## Slide 17 — A surface correction is not yet a bulk nonlocal model
+## Slide 18 — A surface correction is not yet a bulk nonlocal model
 
 Surface response and hydrodynamics are complementary rather than competing ideas.
 
@@ -194,11 +222,13 @@ The Feibelman route assumes that the microscopic structure is confined to a thin
 
 The hydrodynamic route retains density and current as fields throughout the metal. It therefore captures longitudinal waves, finite compressibility, and a wavevector-dependent bulk response.
 
-The hydrodynamic model is needed when the field varies appreciably inside the electron gas, not only across a thin surface sheet. But it requires an electronic closure and an additional boundary treatment. In other words, it retains more volume dynamics while making stronger assumptions about the continuum electron fluid.
+The hydrodynamic model is needed when the field varies appreciably *inside* the electron gas, not only across a thin surface sheet. More precisely, the internal variation length—an evanescent penetration distance, longitudinal modal wavelength, or thickness—must approach a screening length. This happens for few-nanometre particles or films, high multipoles, large-\(q\) near-field or electron-beam excitation, and extreme metal–insulator–metal gaps where the field penetrates the metal over a comparably short distance. In a large smooth particle under low-order optical illumination, that internal scale stays much larger and a surface correction is often the more economical description.
+
+Hydrodynamics requires an electronic closure and an additional boundary treatment. In other words, it retains more volume dynamics while making stronger assumptions about the continuum electron fluid.
 
 Both models can be derived as different reductions of the same underlying microscopic susceptibility.
 
-## Slide 18 — Quantum hydrodynamics keeps density and current
+## Slide 19 — Quantum hydrodynamics keeps density and current
 
 The simplest linearized hydrodynamic Drude model combines charge continuity with an equation of motion for the current.
 
@@ -212,7 +242,7 @@ The appeal is computational. Density and current remain continuum fields, so the
 
 The model is still effective. The pressure closure, damping, and boundary condition must be calibrated, and the basic version contains no detailed chemistry or interband structure.
 
-## Slide 19 — Complex gap-mode propagation tests both phase and loss
+## Slide 20 — Complex gap-mode propagation tests both phase and loss
 
 Boroviks and co-workers provide an instructive experimental test of this type of model.
 
@@ -224,7 +254,7 @@ This is stronger than comparing only resonance energy because one model must acc
 
 But the fit should not be overinterpreted. The extracted diffusion coefficient is an effective closure. The experiment supports missing nonlocal and surface-enabled loss, but it does not uniquely prove that one microscopic diffusion process is responsible.
 
-## Slide 20 — Hard-wall hydrodynamics moves the problem to the boundary
+## Slide 21 — Hard-wall hydrodynamics moves the problem to the boundary
 
 The standard hydrodynamic model normally imposes zero normal current at the ionic surface. The electron fluid can compress, but it cannot spill across that chosen boundary.
 
@@ -236,7 +266,7 @@ So adding a nonlocal differential equation does not automatically give a realist
 
 The natural next step is to determine the equilibrium density self-consistently, so the electron gas defines its own diffuse optical boundary.
 
-## Slide 21 — Let the equilibrium density define the metal surface
+## Slide 22 — Let the equilibrium density define the metal surface
 
 Self-consistent hydrodynamics, often called quantum hydrodynamic theory or SC–HDM in this context, adds that missing equilibrium step.
 
@@ -250,7 +280,7 @@ The self-consistent model is more physical at the surface, but it is not paramet
 
 That numerical burden is precisely what the final group of slides addresses.
 
-## Slide 22 — A spherical volume-integral route removes the exterior mesh
+## Slide 23 — A spherical volume-integral route removes the exterior mesh
 
 We now arrive at the recent work of Mystilidis and co-workers, the article numbered [1] in the review.
 
@@ -260,7 +290,7 @@ The proposed volume-integral formulation uses the homogeneous dyadic Green tenso
 
 The impressive speedup is therefore real but symmetry enabled. The method is especially elegant for a sphere; extension to arbitrary geometries is a separate challenge.
 
-## Slide 23 — The integral solver recovers established LRA and HDM limits
+## Slide 24 — The integral solver recovers established LRA and HDM limits
 
 Before trusting the self-consistent result, the authors test the integral formulation in limits where an independent solver is available.
 
@@ -272,7 +302,7 @@ It is important to state exactly what has been validated. Agreement with OpenSAN
 
 That distinction separates solver verification from physical validation.
 
-## Slide 24 — Self-consistency redshifts the dipole and reveals a surface mode
+## Slide 25 — Self-consistency redshifts the dipole and reveals a surface mode
 
 Figure 3 contains the central physical result.
 
@@ -282,7 +312,7 @@ The sign change is physically meaningful. Hard-wall pressure pushes the response
 
 The reported average runtimes are 85.69, 87.95, and 94.36 seconds for LRA, HDM, and SC–HDM. In this spherical implementation, self-consistency costs only about ten percent more than the local calculation.
 
-## Slide 25 — The same calculation can export an effective surface response
+## Slide 26 — The same calculation can export an effective surface response
 
 The authors then take one further mesoscopic step. From the radial induced charge they form a spherical \(d_\perp\)-like centroid.
 
@@ -292,7 +322,7 @@ There are several cautions. A centroid extracted from a finite sphere is not aut
 
 So the bridge is promising, but the transfer step still needs careful validation.
 
-## Slide 26 — What the spherical bridge still cannot do
+## Slide 27 — What the spherical bridge still cannot do
 
 Let me summarize the contribution without asking it to do more than it actually does.
 
@@ -304,7 +334,7 @@ Direct experimental validation of the sodium-like spectra is also absent.
 
 My conclusion is that this is a strong solver result and a valuable computational bridge, but not yet a universal material model.
 
-## Slide 27 — A hierarchy of response objects—not a single winner
+## Slide 28 — A hierarchy of response objects—not a single winner
 
 This table collects the hierarchy.
 
@@ -316,7 +346,7 @@ For hybrid systems, especially metal–2D structures, these response objects sho
 
 Hiding both subsystems in one fitted effective permittivity makes it impossible to identify which subsystem carries momentum dependence or loss.
 
-## Slide 28 — From local optics to mesoscopic electrodynamics
+## Slide 29 — From local optics to mesoscopic electrodynamics
 
 Let me finish with five points.
 
