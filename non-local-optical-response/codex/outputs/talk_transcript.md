@@ -176,6 +176,8 @@ That motivates the hydrodynamic route.
 
 Before moving to hydrodynamics, let me close the nanogap story.
 
+The figure from Esteban and co-workers shows three descriptions of the same dimer junction. In the classical model, the gap has zero conductivity and the tunnelling probability is exactly zero. In the fully quantum description, the electronic tails overlap and produce finite density and transmission between the particles. The quantum-corrected model compresses that microscopic calculation into a separation-dependent effective material in the gap. It is therefore a mesoscopic transport model, but it changes the material occupying the junction rather than merely correcting the two outer surfaces.
+
 Savage and co-workers measured optical spectra together with conductance in a controllable gold junction. Tan and co-workers then showed that molecular conductance controls the capacitive-to-conductive plasmon crossover.
 
 At large gaps, the junction behaves capacitively and the bonding mode redshifts as the gap closes. At the onset of tunnelling, the optical crossover follows junction conductance rather than only nominal separation. Once the junction supports appreciable current, a charge-transfer mode becomes possible.

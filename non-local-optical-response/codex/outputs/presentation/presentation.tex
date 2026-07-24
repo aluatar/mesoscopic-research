@@ -466,47 +466,24 @@
 \begin{frame}{Tunnelling changes the topology of the boundary}
 \small
 \begin{columns}[T,onlytextwidth]
-  \column{0.31\textwidth}
-  \begin{block}{Capacitive junction}
-    \centering
-    \begin{tikzpicture}[x=1cm,y=1cm]
-      \fill[orange!45] (0,0) rectangle (0.8,1.25);
-      \fill[orange!45] (2.2,0) rectangle (3.0,1.25);
-      \draw[<->,thick] (0.8,0.63)--(2.2,0.63) node[midway,above,font=\scriptsize]{$g$};
-      \draw[teal,thick,->] (1.05,0.25)--(1.95,0.25);
-    \end{tikzpicture}
-    \smallskip
-    Bonding dimer plasmon redshifts as the dielectric gap shrinks.
+  \column{0.60\textwidth}
+  \centering
+  \includegraphics[
+    width=\linewidth,
+    height=0.69\textheight,
+    keepaspectratio
+  ]{assets/esteban2012_fig1.jpg}
+  \shortcite{R. Esteban et al., Nat. Commun. 3, 825 (2012), Fig. 1.}
+  \column{0.36\textwidth}
+  \begin{block}{Three descriptions of one junction}
+    \begin{itemize}
+      \item \textbf{Classical:} $\sigma=0$ in the gap and the tunnelling probability is $T=0$.
+      \item \textbf{Quantum:} electronic tails overlap, so $|\Psi|^2$ and $T$ become finite.
+      \item \textbf{QCM:} replace the gap by a transport-calibrated $\varepsilon(l,\omega)$.
+    \end{itemize}
   \end{block}
-  \column{0.31\textwidth}
-  \begin{block}{Conductive crossover}
-    \centering
-    \begin{tikzpicture}[x=1cm,y=1cm]
-      \fill[orange!45] (0,0) rectangle (0.8,1.25);
-      \fill[orange!45] (2.2,0) rectangle (3.0,1.25);
-      \draw[red,very thick,->] (0.8,0.63)--(2.2,0.63);
-      \node[font=\scriptsize] at (1.5,0.94){$J_\omega$};
-    \end{tikzpicture}
-    \smallskip
-    Optical crossover follows junction conductance, not only nominal gap size.
-  \end{block}
-  \column{0.31\textwidth}
-  \begin{block}{Charge-transfer mode}
-    \centering
-    \begin{tikzpicture}[x=1cm,y=1cm]
-      \fill[orange!45] (0,0) rectangle (1.2,1.25);
-      \fill[orange!45] (1.8,0) rectangle (3.0,1.25);
-      \draw[red,very thick,->] (1.2,0.72)--(1.8,0.72);
-      \draw[teal,very thick,->] (1.8,0.28)--(1.2,0.28);
-    \end{tikzpicture}
-    \smallskip
-    The gap is no longer a purely dielectric interface; transport must enter.
-  \end{block}
+  \caution{Model boundary.} Surface response and hard-wall HDM assume separated bodies. A conducting gap instead requires QCM, NEGF, or a transport-calibrated model.
 \end{columns}
-\begin{alertblock}{Why this matters for model choice}
-  $d$ parameters and hard-wall hydrodynamics describe separated bodies. A conducting junction needs QCM, NEGF, or another transport-calibrated response.
-\end{alertblock}
-\shortcite{K. J. Savage et al., Nature 491, 574 (2012); S. F. Tan et al., Science 343, 1496 (2014).}
 \end{frame}
 
 \begin{frame}{A surface correction is not yet a bulk nonlocal model}

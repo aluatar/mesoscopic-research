@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.7.23)  24 JUL 2026 13:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.7.23)  24 JUL 2026 13:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1224,15 +1224,21 @@ Package pdftex.def Info: assets/toscano2015_fig1_page.png  used on input line 4
 
  <./assets/toscano2015_fig1_page.png (PNG copy)>] [15
 
-] [16
+]
+<assets/esteban2012_fig1.jpg, id=134, 687.56876pt x 561.09625pt>
+File: assets/esteban2012_fig1.jpg Graphic file (type jpg)
+<use assets/esteban2012_fig1.jpg>
+Package pdftex.def Info: assets/esteban2012_fig1.jpg  used on input line 487.
+(pdftex.def)             Requested size: 204.38376pt x 166.78908pt.
+ [16
 
-] [17
+ <./assets/esteban2012_fig1.jpg>] [17
 
 ]
 <assets/mortensen2014_fig2.jpg, id=145, 687.56876pt x 686.565pt>
 File: assets/mortensen2014_fig2.jpg Graphic file (type jpg)
 <use assets/mortensen2014_fig2.jpg>
-Package pdftex.def Info: assets/mortensen2014_fig2.jpg  used on input line 573.
+Package pdftex.def Info: assets/mortensen2014_fig2.jpg  used on input line 550.
 
 (pdftex.def)             Requested size: 169.44725pt x 169.19989pt.
  [18
@@ -1241,7 +1247,7 @@ Package pdftex.def Info: assets/mortensen2014_fig2.jpg  used on input line 573.
 <assets/boroviks2022_fig4.png, id=151, 687.56876pt x 1112.155pt>
 File: assets/boroviks2022_fig4.png Graphic file (type png)
 <use assets/boroviks2022_fig4.png>
-Package pdftex.def Info: assets/boroviks2022_fig4.png  used on input line 595.
+Package pdftex.def Info: assets/boroviks2022_fig4.png  used on input line 572.
 (pdftex.def)             Requested size: 97.12976pt x 157.10915pt.
  [19
 
@@ -1251,7 +1257,7 @@ Package pdftex.def Info: assets/boroviks2022_fig4.png  used on input line 595.
 File: assets/toscano2015_fig1_page.png Graphic file (type png)
 <use assets/toscano2015_fig1_page.png>
 Package pdftex.def Info: assets/toscano2015_fig1_page.png  used on input line 6
-59.
+36.
 (pdftex.def)             Requested size: 149.34666pt x 94.27509pt.
  [21
 
@@ -1259,7 +1265,7 @@ Package pdftex.def Info: assets/toscano2015_fig1_page.png  used on input line 6
 <assets/mystilidis2026_fig1.png, id=170, 2203.23125pt x 2222.3025pt>
 File: assets/mystilidis2026_fig1.png Graphic file (type png)
 <use assets/mystilidis2026_fig1.png>
-Package pdftex.def Info: assets/mystilidis2026_fig1.png  used on input line 680
+Package pdftex.def Info: assets/mystilidis2026_fig1.png  used on input line 657
 .
 (pdftex.def)             Requested size: 158.1417pt x 159.51057pt.
  [22
@@ -1268,7 +1274,7 @@ Package pdftex.def Info: assets/mystilidis2026_fig1.png  used on input line 680
 <assets/mystilidis2026_fig2.png, id=176, 2107.875pt x 2426.06375pt>
 File: assets/mystilidis2026_fig2.png Graphic file (type png)
 <use assets/mystilidis2026_fig2.png>
-Package pdftex.def Info: assets/mystilidis2026_fig2.png  used on input line 700
+Package pdftex.def Info: assets/mystilidis2026_fig2.png  used on input line 677
 .
 (pdftex.def)             Requested size: 140.71548pt x 161.95683pt.
  [23
@@ -1277,7 +1283,7 @@ Package pdftex.def Info: assets/mystilidis2026_fig2.png  used on input line 700
 <assets/mystilidis2026_fig3.png, id=182, 2343.75626pt x 2026.57124pt>
 File: assets/mystilidis2026_fig3.png Graphic file (type png)
 <use assets/mystilidis2026_fig3.png>
-Package pdftex.def Info: assets/mystilidis2026_fig3.png  used on input line 723
+Package pdftex.def Info: assets/mystilidis2026_fig3.png  used on input line 700
 .
 (pdftex.def)             Requested size: 187.28975pt x 161.94347pt.
  [24
@@ -1287,14 +1293,14 @@ Package pdftex.def Info: assets/mystilidis2026_fig3.png  used on input line 723
 ] [26
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 809--809
+Underfull \hbox (badness 10000) in paragraph at lines 786--786
 []|$\OML/lmm/m/it/7 ^^_\OT1/lmr/m/n/7 (\OT1/lmr/bx/n/7 r\OML/lmm/m/it/7 ; \OT1/
 lmr/bx/n/7 r[]\OT1/lmr/m/n/7 ; \OML/lmm/m/it/7 !\OT1/lmr/m/n/7 )$ \T1/lmss/m/n/
 7 or open-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 809--809
+Underfull \hbox (badness 10000) in paragraph at lines 786--786
 []|$\OML/lmm/m/it/7 n[]\OT1/lmr/m/n/7 (\OT1/lmr/bx/n/7 r\OT1/lmr/m/n/7 )$ \T1/l
 mss/m/n/7 plus in-duced
  []
@@ -1322,13 +1328,13 @@ Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 26767 strings out of 469537
- 541915 string characters out of 5469418
- 918109 words of memory out of 5000000
- 54798 multiletter control sequences out of 15000+600000
+ 26765 strings out of 469537
+ 541951 string characters out of 5469418
+ 917462 words of memory out of 5000000
+ 54796 multiletter control sequences out of 15000+600000
  716263 words of font info for 106 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 101i,13n,107p,387b,1179s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,13n,107p,387b,1085s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </tmp/texlive-root/usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></tmp/tex
 live-root/usr/share/texmf/fonts/type1/public/lm/lmbx7.pfb></tmp/texlive-root/us
 r/share/texmf/fonts/type1/public/lm/lmbx9.pfb></tmp/texlive-root/usr/share/texm
@@ -1354,9 +1360,9 @@ f/fonts/type1/public/lm/lmsy6.pfb></tmp/texlive-root/usr/share/texmf/fonts/type
 lmsy8.pfb></tmp/texlive-root/usr/share/texmf/fonts/type1/public/lm/lmsy9.pfb></
 tmp/texlive-root/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbo
 ls/msam10.pfb>
-Output written on presentation.pdf (28 pages, 5042624 bytes).
+Output written on presentation.pdf (28 pages, 5081586 bytes).
 PDF statistics:
- 343 PDF objects out of 1000 (max. 8388607)
+ 344 PDF objects out of 1000 (max. 8388607)
  57 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 138 words of extra memory for PDF output out of 10000 (max. 10000000)
 
