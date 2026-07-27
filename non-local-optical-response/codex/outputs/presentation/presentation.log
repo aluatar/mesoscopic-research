@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.7.23)  24 JUL 2026 17:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.7.27)  27 JUL 2026 11:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1132,11 +1132,11 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 [1
 
-{/tmp/texlive-var/fonts/map/pdftex/pdftex.map}{/tmp/texlive-root/usr/share/texm
+{/tmp/texlive-var/fonts/map/updmap/pdftex.map}{/tmp/texlive-root/usr/share/texm
 f/fonts/enc/dvips/lm/lm-ec.enc}{/tmp/texlive-root/usr/share/texmf/fonts/enc/dvi
 ps/lm/lm-mathit.enc}{/tmp/texlive-root/usr/share/texmf/fonts/enc/dvips/lm/lm-rm
 .enc}{/tmp/texlive-root/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}]
-<assets/goncalves2020_fig1.png, id=27, 687.56876pt x 443.6575pt>
+<assets/goncalves2020_fig1.png, id=28, 687.56876pt x 443.6575pt>
 File: assets/goncalves2020_fig1.png Graphic file (type png)
 <use assets/goncalves2020_fig1.png>
 Package pdftex.def Info: assets/goncalves2020_fig1.png  used on input line 102.
@@ -1157,7 +1157,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
  [4
 
 ]
-<assets/mortensen2014_fig1.jpg, id=53, 643.40375pt x 687.56876pt>
+<assets/mortensen2014_fig1.jpg, id=54, 643.40375pt x 687.56876pt>
 File: assets/mortensen2014_fig1.jpg Graphic file (type jpg)
 <use assets/mortensen2014_fig1.jpg>
 Package pdftex.def Info: assets/mortensen2014_fig1.jpg  used on input line 195.
@@ -1166,102 +1166,99 @@ Package pdftex.def Info: assets/mortensen2014_fig1.jpg  used on input line 195.
  [5
 
  <./assets/mortensen2014_fig1.jpg>]
-<assets/toscano2015_fig4_page.png, id=64, 614.295pt x 794.97pt>
-File: assets/toscano2015_fig4_page.png Graphic file (type png)
-<use assets/toscano2015_fig4_page.png>
-Package pdftex.def Info: assets/toscano2015_fig4_page.png  used on input line 2
-23.
-(pdftex.def)             Requested size: 112.14049pt x 145.03503pt.
+<assets/photo_2026-07-27_11-23-01.jpg, id=65, 153.3pt x 280.32pt>
+File: assets/photo_2026-07-27_11-23-01.jpg Graphic file (type jpg)
+<use assets/photo_2026-07-27_11-23-01.jpg>
+Package pdftex.def Info: assets/photo_2026-07-27_11-23-01.jpg  used on input li
+ne 221.
+(pdftex.def)             Requested size: 83.28368pt x 152.29016pt.
  [6
 
- <./assets/toscano2015_fig4_page.png (PNG copy)>] [7
+ <./assets/photo_2026-07-27_11-23-01.jpg>] [7
 
-]
-[8
+] [8
 
 {/tmp/texlive-root/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}]
-<assets/chaudhary2024_fig2.png, id=89, 687.56876pt x 378.41376pt>
+<assets/chaudhary2024_fig2.png, id=88, 687.56876pt x 378.41376pt>
 File: assets/chaudhary2024_fig2.png Graphic file (type png)
 <use assets/chaudhary2024_fig2.png>
-Package pdftex.def Info: assets/chaudhary2024_fig2.png  used on input line 323.
+Package pdftex.def Info: assets/chaudhary2024_fig2.png  used on input line 321.
 
 (pdftex.def)             Requested size: 235.01877pt x 129.34608pt.
-
-[9
+ [9
 
  <./assets/chaudhary2024_fig2.png>]
-<assets/chaudhary2024_fig3.png, id=97, 687.56876pt x 545.03625pt>
+<assets/chaudhary2024_fig3.png, id=96, 687.56876pt x 545.03625pt>
 File: assets/chaudhary2024_fig3.png Graphic file (type png)
 <use assets/chaudhary2024_fig3.png>
-Package pdftex.def Info: assets/chaudhary2024_fig3.png  used on input line 344.
+Package pdftex.def Info: assets/chaudhary2024_fig3.png  used on input line 342.
 
 (pdftex.def)             Requested size: 198.2043pt x 157.11668pt.
  [10
 
- <./assets/chaudhary2024_fig3.png>]
-[11
+ <./assets/chaudhary2024_fig3.png>] [11
 
 ]
-<assets/zhu2016_fig1.jpg, id=109, 687.56876pt x 540.0175pt>
+<assets/zhu2016_fig1.jpg, id=108, 687.56876pt x 540.0175pt>
 File: assets/zhu2016_fig1.jpg Graphic file (type jpg)
 <use assets/zhu2016_fig1.jpg>
-Package pdftex.def Info: assets/zhu2016_fig1.jpg  used on input line 393.
+Package pdftex.def Info: assets/zhu2016_fig1.jpg  used on input line 391.
 (pdftex.def)             Requested size: 196.97679pt x 154.70586pt.
  [12
 
  <./assets/zhu2016_fig1.jpg>]
-<assets/yang2019_fig3_lw685.png, id=117, 687.56876pt x 395.4775pt>
-File: assets/yang2019_fig3_lw685.png Graphic file (type png)
-<use assets/yang2019_fig3_lw685.png>
-Package pdftex.def Info: assets/yang2019_fig3_lw685.png  used on input line 431
-.
-(pdftex.def)             Requested size: 191.1987pt x 69.10797pt.
- [13
-
- <./assets/yang2019_fig3_lw685.png>]
-File: assets/yang2019_fig3_lw685.png Graphic file (type png)
-<use assets/yang2019_fig3_lw685.png>
-Package pdftex.def Info: assets/yang2019_fig3_lw685.png  used on input line 450
-.
-(pdftex.def)             Requested size: 246.96852pt x 142.05196pt.
-
-[14
-
-]
-<assets/toscano2015_fig1_page.png, id=131, 614.295pt x 794.97pt>
+<assets/toscano2015_fig1_page.png, id=116, 614.295pt x 794.97pt>
 File: assets/toscano2015_fig1_page.png Graphic file (type png)
 <use assets/toscano2015_fig1_page.png>
 Package pdftex.def Info: assets/toscano2015_fig1_page.png  used on input line 4
-76.
+30.
+(pdftex.def)             Requested size: 191.20706pt x 83.65309pt.
+ [13
+
+ <./assets/toscano2015_fig1_page.png (PNG copy)>]
+<assets/yang2019_fig3_lw685.png, id=125, 687.56876pt x 395.4775pt>
+File: assets/yang2019_fig3_lw685.png Graphic file (type png)
+<use assets/yang2019_fig3_lw685.png>
+Package pdftex.def Info: assets/yang2019_fig3_lw685.png  used on input line 449
+.
+(pdftex.def)             Requested size: 246.96852pt x 142.05196pt.
+ [14
+
+ <./assets/yang2019_fig3_lw685.png>]
+File: assets/toscano2015_fig1_page.png Graphic file (type png)
+<use assets/toscano2015_fig1_page.png>
+Package pdftex.def Info: assets/toscano2015_fig1_page.png  used on input line 4
+75.
 (pdftex.def)             Requested size: 211.12518pt x 92.36726pt.
  [15
 
- <./assets/toscano2015_fig1_page.png (PNG copy)>] [16
+] [16
 
 ]
-<assets/esteban2012_fig1.jpg, id=144, 687.56876pt x 561.09625pt>
+<assets/esteban2012_fig1.jpg, id=143, 687.56876pt x 561.09625pt>
 File: assets/esteban2012_fig1.jpg Graphic file (type jpg)
 <use assets/esteban2012_fig1.jpg>
-Package pdftex.def Info: assets/esteban2012_fig1.jpg  used on input line 535.
+Package pdftex.def Info: assets/esteban2012_fig1.jpg  used on input line 534.
 (pdftex.def)             Requested size: 204.38376pt x 166.78908pt.
  [17
 
- <./assets/esteban2012_fig1.jpg>] [18
+ <./assets/esteban2012_fig1.jpg>]
+[18
 
 ]
-<assets/mortensen2014_fig2.jpg, id=155, 687.56876pt x 686.565pt>
+<assets/mortensen2014_fig2.jpg, id=154, 687.56876pt x 686.565pt>
 File: assets/mortensen2014_fig2.jpg Graphic file (type jpg)
 <use assets/mortensen2014_fig2.jpg>
-Package pdftex.def Info: assets/mortensen2014_fig2.jpg  used on input line 600.
+Package pdftex.def Info: assets/mortensen2014_fig2.jpg  used on input line 599.
 
 (pdftex.def)             Requested size: 169.44725pt x 169.19989pt.
  [19
 
  <./assets/mortensen2014_fig2.jpg>]
-<assets/boroviks2022_fig4.png, id=162, 687.56876pt x 1112.155pt>
+<assets/boroviks2022_fig4.png, id=161, 687.56876pt x 1112.155pt>
 File: assets/boroviks2022_fig4.png Graphic file (type png)
 <use assets/boroviks2022_fig4.png>
-Package pdftex.def Info: assets/boroviks2022_fig4.png  used on input line 622.
+Package pdftex.def Info: assets/boroviks2022_fig4.png  used on input line 621.
 (pdftex.def)             Requested size: 97.12976pt x 157.10915pt.
  [20
 
@@ -1271,33 +1268,34 @@ Package pdftex.def Info: assets/boroviks2022_fig4.png  used on input line 622.
 File: assets/toscano2015_fig1_page.png Graphic file (type png)
 <use assets/toscano2015_fig1_page.png>
 Package pdftex.def Info: assets/toscano2015_fig1_page.png  used on input line 6
-86.
+85.
 (pdftex.def)             Requested size: 149.34666pt x 94.27509pt.
  [22
 
 ]
-<assets/mystilidis2026_fig1.png, id=180, 2203.23125pt x 2222.3025pt>
+<assets/mystilidis2026_fig1.png, id=179, 2203.23125pt x 2222.3025pt>
 File: assets/mystilidis2026_fig1.png Graphic file (type png)
 <use assets/mystilidis2026_fig1.png>
-Package pdftex.def Info: assets/mystilidis2026_fig1.png  used on input line 707
+Package pdftex.def Info: assets/mystilidis2026_fig1.png  used on input line 706
 .
 (pdftex.def)             Requested size: 158.1417pt x 159.51057pt.
  [23
 
  <./assets/mystilidis2026_fig1.png (PNG copy)>]
-<assets/mystilidis2026_fig2.png, id=186, 2107.875pt x 2426.06375pt>
+<assets/mystilidis2026_fig2.png, id=185, 2107.875pt x 2426.06375pt>
 File: assets/mystilidis2026_fig2.png Graphic file (type png)
 <use assets/mystilidis2026_fig2.png>
-Package pdftex.def Info: assets/mystilidis2026_fig2.png  used on input line 727
+Package pdftex.def Info: assets/mystilidis2026_fig2.png  used on input line 726
 .
 (pdftex.def)             Requested size: 140.71548pt x 161.95683pt.
- [24
+
+[24
 
  <./assets/mystilidis2026_fig2.png (PNG copy)>]
 <assets/mystilidis2026_fig3.png, id=192, 2343.75626pt x 2026.57124pt>
 File: assets/mystilidis2026_fig3.png Graphic file (type png)
 <use assets/mystilidis2026_fig3.png>
-Package pdftex.def Info: assets/mystilidis2026_fig3.png  used on input line 750
+Package pdftex.def Info: assets/mystilidis2026_fig3.png  used on input line 749
 .
 (pdftex.def)             Requested size: 187.28975pt x 161.94347pt.
  [25
@@ -1307,14 +1305,14 @@ Package pdftex.def Info: assets/mystilidis2026_fig3.png  used on input line 750
 ] [27
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 836--836
+Underfull \hbox (badness 10000) in paragraph at lines 835--835
 []|$\OML/lmm/m/it/7 ^^_\OT1/lmr/m/n/7 (\OT1/lmr/bx/n/7 r\OML/lmm/m/it/7 ; \OT1/
 lmr/bx/n/7 r[]\OT1/lmr/m/n/7 ; \OML/lmm/m/it/7 !\OT1/lmr/m/n/7 )$ \T1/lmss/m/n/
 7 or open-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 836--836
+Underfull \hbox (badness 10000) in paragraph at lines 835--835
 []|$\OML/lmm/m/it/7 n[]\OT1/lmr/m/n/7 (\OT1/lmr/bx/n/7 r\OT1/lmr/m/n/7 )$ \T1/l
 mss/m/n/7 plus in-duced
  []
@@ -1342,9 +1340,9 @@ Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 26782 strings out of 469537
- 542423 string characters out of 5469418
- 917588 words of memory out of 5000000
+ 26782 strings out of 469528
+ 542451 string characters out of 5468906
+ 917593 words of memory out of 5000000
  54811 multiletter control sequences out of 15000+600000
  719034 words of font info for 107 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -1374,9 +1372,10 @@ public/lm/lmsy9.pfb></tmp/texlive-root/usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/symbols/msam10.pfb></tmp/texlive-root/usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></tmp/texlive-root/usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on presentation.pdf (29 pages, 5135707 bytes).
+Output written on presentation.pdf (29 pages, 5044056 bytes).
 PDF statistics:
- 352 PDF objects out of 1000 (max. 8388607)
+ 354 PDF objects out of 1000 (max. 8388607)
+ 237 compressed objects within 3 object streams
  59 named destinations out of 1000 (max. 500000)
- 149 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 143 words of extra memory for PDF output out of 10000 (max. 10000000)
 

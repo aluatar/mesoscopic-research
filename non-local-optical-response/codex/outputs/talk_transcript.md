@@ -62,7 +62,7 @@ The natural comparisons are quantities such as \(q\ell\), \(\ell/R\), \(\ell/g\)
 
 This is why a one-hundred-nanometre antenna with a one-nanometre gap may exhibit stronger nonlocal effects than a much smaller isolated particle. The gap produces Fourier components with wavevector of order one over the gap size.
 
-The literature result on the right makes the size dependence concrete. Toscano and co-workers plot the surface-plasmon energy against inverse nanowire radius. Their self-consistent hydrodynamic calculation gives different trends for sodium and silver, because spill-out and interband screening compete differently in the two materials. The lower panel also shows a Bennett surface mode that has no counterpart in a one-resonance local picture. The point is not that every system follows these curves, but that \(1/R\) exposes physics that the bulk dielectric function cannot encode.
+The composite figure on the right makes two complementary points. The upper two panels are the inverse-radius trends from Toscano and co-workers. Their self-consistent hydrodynamic calculation gives different size trends for sodium and silver, because spill-out and interband screening compete differently in the two materials. The lower benchmark, from Mystilidis and co-workers, makes the controlled baseline explicit: the red LRA dipole is essentially flat at about \(3.49\) eV as the radius changes, whereas the blue HDM result is size dependent and blueshifts strongly as the sphere is made smaller. The coloured markers compare VIE with OpenSANS, so this is also a numerical verification that the flat LRA and nonlocal HDM trends are not solver artefacts.
 
 It is also why a resonance shift by itself is not a unique signature. The same shift could come from a surface centroid, a geometric error, a spacer thickness, a facet, chemistry, or interband screening. Strong evidence normally requires more than one observable—ideally one reactive quantity and one dissipative or transport quantity.
 
@@ -146,9 +146,9 @@ This definition matters: \(d_\parallel\) is not the ordinary centroid of a unifo
 
 These parameters are complex and frequency dependent. Their real parts primarily affect phase and resonance energy. Their imaginary parts carry surface-enabled loss. They are not universal lengths: they depend on material, crystallographic surface, environment, frequency, and potentially wavevector.
 
-The two experimental panels on the right are a useful reality check. Yang and co-workers retrieve both the real and imaginary parts of \(d_\perp\) from families of film-coupled resonators. Thus the compact surface quantity is constrained by measured spectral shifts and losses, rather than being introduced only as a diagrammatic centroid.
+The panels on the right make the microscopic content of the centroid concrete. In the self-consistent calculation, panel b, the dashed equilibrium density has a diffuse tail and the induced charge is distributed across a finite region near the ionic edge. In the hard-wall calculation, panel c, the equilibrium density terminates sharply and the induced charge is constrained to the interior side. The leading moment of this induced-charge distribution relative to the chosen ionic plane is precisely the physics encoded in \(d_\perp\): spill-out or spill-in becomes a complex displacement rather than an atom-by-atom charge map.
 
-The advantage is enormous. Instead of resolving angstrom-scale charge density in every device geometry, we can insert two surface functions into modified Maxwell boundary conditions.
+The advantage is enormous. Instead of resolving angstrom-scale charge density in every device geometry, we can insert two surface functions into modified Maxwell boundary conditions. The next slide then asks how these compressed quantities can be retrieved experimentally.
 
 The price is that the compression is normally first order and interface local. Strong curvature, multiple facets, charge transfer, or pronounced \(q\) dependence may require more information.
 
