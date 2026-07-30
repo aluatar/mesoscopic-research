@@ -1,0 +1,1327 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black
+}
+
+\newcommand{\E}{\mathbf E}
+\newcommand{\Hfield}{\mathbf H}
+\newcommand{\Bfield}{\mathbf B}
+\newcommand{\Dfield}{\mathbf D}
+\newcommand{\J}{\mathbf J}
+\newcommand{\Pfield}{\mathbf P}
+\newcommand{\nvec}{\hat{\mathbf n}}
+\newcommand{\dd}{\mathrm d}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\ii}{\mathrm i}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\epsinf}{\varepsilon_\infty}
+\newcommand{\epsd}{\varepsilon_d}
+\newcommand{\epst}{\varepsilon_T}
+\newcommand{\epsl}{\varepsilon_L}
+\newcommand{\omegap}{\omega_p}
+\newcommand{\vF}{v_F}
+
+\title{\textbf{The vanilla hard-wall hydrodynamic Drude model}\\
+\large A derivation with physical interpretation}
+\author{}
+\date{27 July 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This note derives the standard linearized hard-wall hydrodynamic Drude model
+(HDM) for a metal and explains what each equation means physically.  The
+central modification of local Drude theory is the finite compressibility of the
+conduction-electron fluid.  It produces a pressure term proportional to
+\(\nabla(\nabla\!\cdot\!\J)\), leaves the transverse response local, and gives
+the longitudinal electron-density response a finite wave number.  The note
+also distinguishes the incident electromagnetic field from the total
+self-consistent field, explains why local Drude theory already supports surface
+plasmons, derives the electric-field-only formulation by eliminating \(\J\),
+and derives the additional hard-wall boundary condition \(\nvec\!\cdot\!\J=0\).
+\end{abstract}
+
+\tableofcontents
+
+\section{Scope, notation, and the central idea}
+
+We consider a metal occupying a region \(\Omega_m\), surrounded by a local
+dielectric with relative permittivity \(\epsd\).  The unit normal \(\nvec\)
+points from the metal into the dielectric.  The metal contains a mobile
+conduction-electron fluid.  Bound electrons and interband processes are
+represented by a local background permittivity \(\epsinf\).  The mobile
+electrons are treated hydrodynamically.
+
+Throughout the derivation we use the harmonic convention
+\begin{equation}
+    \text{all fields}(\mathbf r,t)=\Re\!\left[\text{field}(\mathbf r,\omega)
+    \ee^{-\ii\omega t}\right].
+    \label{eq:time-convention}
+\end{equation}
+With this convention,
+\begin{equation}
+    \partial_t\longrightarrow-\ii\omega.
+    \label{eq:dt-rule}
+\end{equation}
+
+The most important conceptual point is the following:
+\begin{equation}
+    \boxed{\text{The HDM equations inside the metal act on the total
+    self-consistent field }\E.}
+    \label{eq:total-field-box}
+\end{equation}
+For a scattering problem one may write
+\begin{equation}
+    \E_{\mathrm{tot}}=\E_{\mathrm{inc}}+\E_{\mathrm{sc}},
+    \label{eq:incident-total}
+\end{equation}
+but \(\E_{\mathrm{inc}}\) is only the prescribed external drive.  The
+induced field \(\E_{\mathrm{sc}}\), including the field created by the induced
+charge, is part of the field that drives the electron fluid.
+
+The local Drude model assumes
+\begin{equation}
+    \J=\sigma_D(\omega)\E,
+    \qquad
+    \sigma_D(\omega)=\frac{\ii\epsilon_0\omegap^2}{\omega+\ii\gamma},
+    \label{eq:local-drude-current}
+\end{equation}
+where \(\gamma\) is a phenomenological momentum-relaxation rate and
+\(\omegap\) is the plasma frequency.  It contains no spatial derivative of
+the electron density and therefore no intrinsic microscopic length scale.
+
+The hydrodynamic model adds the pressure force of a compressible electron
+fluid.  In the linearized frequency-domain form its central equation is
+\begin{equation}
+    \boxed{
+    \beta^2\nabla\!\left(\nabla\!\cdot\!\J\right)
+    +\omega(\omega+\ii\gamma)\J
+    =\ii\omega\epsilon_0\omegap^2\E.
+    }
+    \label{eq:hdm-current-central}
+\end{equation}
+The first term is the nonlocal correction.  It acts only on the
+longitudinal part of the current, because it contains \(\nabla\!\cdot\!\J\).
+
+The adjective hard-wall refers to the additional condition
+\begin{equation}
+    \boxed{\nvec\!\cdot\!\J=0\quad\text{at the metal boundary}.}
+    \label{eq:hard-wall-central}
+\end{equation}
+It says that conduction electrons cannot flow through the geometrical
+surface.  It does \emph{not} say that \(\nvec\!\cdot\!\E=0\).
+
+\section{Why introduce a hydrodynamic model?}
+
+\subsection{What local Drude theory can already do}
+
+Local Drude theory can describe collective charge oscillations at an interface.
+For example, a planar metal--dielectric interface supports a surface plasmon
+whose charge is represented, in the local idealization, by an oscillating
+surface sheet.  A nanoparticle can similarly support a dipolar plasmon, with
+positive and negative induced charge patches on opposite sides.
+
+The restoring force of these modes is the Coulomb field created by the charge
+separation.  Fermi pressure is not required for the existence of the surface
+plasmon.
+
+\subsection{What is missing from local Drude theory}
+
+Local Drude theory has two related limitations:
+\begin{enumerate}
+    \item the induced charge is compressed into an ideal mathematical sheet at
+    an interface; and
+    \item the formal bulk condition \(\eps_D(\omega)=0\) gives a plasma
+    frequency but no finite wave number or spatial structure for the bulk
+    longitudinal oscillation.
+\end{enumerate}
+
+The hydrodynamic pressure term supplies the missing spatial physics.  A density
+gradient costs energy, so charge cannot be compressed arbitrarily sharply.
+The induced surface charge becomes a narrow but finite-width layer, and bulk
+longitudinal plasmons acquire the dispersion
+\begin{equation}
+    \omega(\omega+\ii\gamma)
+    =\frac{\omegap^2}{\epsinf}+\beta^2 k^2.
+    \label{eq:bulk-dispersion-preview}
+\end{equation}
+
+Vanilla HDM is therefore a mesoscopic extension of local Drude theory: it
+retains the classical electromagnetic field and adds one coarse-grained
+quantum ingredient, namely the compressibility of the conduction-electron gas.
+It does not include equilibrium-density spill-out, tunnelling, or a fully
+self-consistent exchange--correlation functional.
+
+\section{Starting point: a charged compressible electron fluid}
+
+\subsection{Fluid variables}
+
+Let \(n(\mathbf r,t)\) be the conduction-electron number density and
+\(\mathbf v(\mathbf r,t)\) their velocity.  The electron charge is \(-e\),
+where \(e>0\).  The free-electron charge and current densities are
+\begin{equation}
+    \rho_f=-e n,
+    \qquad
+    \J=-e n\mathbf v.
+    \label{eq:rho-J-definitions}
+\end{equation}
+
+The equilibrium jellium density is taken to be constant inside the metal,
+\(n=n_0\), and zero outside.  In the vanilla hard-wall model this sharp
+geometrical cutoff is imposed as an idealization:
+\begin{equation}
+    n_0(\mathbf r)=
+    \begin{cases}
+       n_0, & \mathbf r\in\Omega_m,\\
+       0, & \mathbf r\notin\Omega_m.
+    \end{cases}
+    \label{eq:sharp-equilibrium-density}
+\end{equation}
+There is no equilibrium spill-out in this model.
+
+\subsection{Continuity equation}
+
+Conservation of the number of conduction electrons gives
+\begin{equation}
+    \partial_t n+\nabla\!\cdot(n\mathbf v)=0.
+    \label{eq:continuity-n}
+\end{equation}
+Using \(\J=-en\mathbf v\), the same equation becomes charge continuity:
+\begin{equation}
+    \partial_t\rho_f+\nabla\!\cdot\!\J=0.
+    \label{eq:continuity-rho}
+\end{equation}
+For harmonic fields,
+\begin{equation}
+    -\ii\omega\rho_f+\nabla\!\cdot\!\J=0,
+    \qquad
+    \rho_f=\frac{1}{\ii\omega}\nabla\!\cdot\!\J.
+    \label{eq:rho-from-J}
+\end{equation}
+
+This equation is the first reason the divergence of the current is central:
+charge is created wherever the current converges or terminates.  A current
+may be large without creating charge if it is divergence-free.
+
+\subsection{Momentum equation and pressure force}
+
+The damped Euler equation for the electron fluid is
+\begin{equation}
+    m n\left(\partial_t+\mathbf v\!\cdot\!\nabla\right)\mathbf v
+    =-en\E-m\gamma n\mathbf v-\nabla p(n),
+    \label{eq:euler-full}
+\end{equation}
+where \(p(n)\) is the thermodynamic pressure of the electron gas.  The three
+terms on the right are, respectively:
+\begin{itemize}
+    \item the electric force on the negatively charged electrons;
+    \item phenomenological momentum relaxation; and
+    \item the pressure-gradient force, which opposes compression.
+\end{itemize}
+
+We linearize around a uniform, stationary equilibrium:
+\begin{equation}
+    n=n_0+n_1,
+    \qquad
+    \mathbf v=\mathbf v_1,
+    \qquad
+    |n_1|\ll n_0.
+    \label{eq:linearization}
+\end{equation}
+The convective term \(\mathbf v\!\cdot\!\nabla\mathbf v\) is second order and
+is dropped.  The pressure is expanded as
+\begin{equation}
+    p(n_0+n_1)=p(n_0)+
+    \left(\frac{\partial p}{\partial n}\right)_0n_1+O(n_1^2).
+    \label{eq:pressure-linearization}
+\end{equation}
+Thus the linearized equations are
+\begin{align}
+    \partial_t n_1+n_0\nabla\!\cdot\mathbf v_1&=0,
+    \label{eq:linear-continuity}\\[2mm]
+    \partial_t\mathbf v_1+\gamma\mathbf v_1
+    &=-\frac{e}{m}\E
+    -\frac{1}{m n_0}
+      \left(\frac{\partial p}{\partial n}\right)_0
+      \nabla n_1.
+    \label{eq:linear-euler}
+\end{align}
+
+Define the hydrodynamic velocity parameter \(\beta\) by
+\begin{equation}
+    \boxed{
+    \beta^2\equiv
+    \frac{1}{m}\left(\frac{\partial p}{\partial n}\right)_0.
+    }
+    \label{eq:beta-thermodynamic}
+\end{equation}
+Then the pressure force per electron mass is
+\begin{equation}
+    -\frac{\beta^2}{n_0}\nabla n_1.
+    \label{eq:pressure-force-beta}
+\end{equation}
+
+Physically, \(\beta\) is not the drift velocity of the electron gas.  It is
+the velocity scale associated with the restoring force generated by a density
+gradient.  It plays the role of a sound velocity for the electron fluid, but
+the relevant sound is a collective electronic density oscillation rather
+than an ordinary acoustic wave.
+
+\section{Deriving the hydrodynamic current equation}
+
+\subsection{From velocity to current}
+
+Inside the uniform metal, the linearized current is
+\begin{equation}
+    \J=-e n_0\mathbf v_1.
+    \label{eq:linear-current-velocity}
+\end{equation}
+Multiply Eq.~\eqref{eq:linear-euler} by \(-e n_0\).  The left-hand side
+becomes
+\begin{equation}
+    -e n_0(\partial_t+\gamma)\mathbf v_1
+    =(\partial_t+\gamma)\J.
+    \label{eq:current-time-left}
+\end{equation}
+The electric force becomes
+\begin{equation}
+    (-e n_0)\left(-\frac{e}{m}\E\right)
+    =\frac{e^2n_0}{m}\E.
+    \label{eq:current-electric-force}
+\end{equation}
+Introduce the plasma frequency
+\begin{equation}
+    \omegap^2\equiv\frac{e^2n_0}{m\epsilon_0}.
+    \label{eq:plasma-frequency}
+\end{equation}
+Then the electric term is \(\epsilon_0\omegap^2\E\).
+
+For the pressure term, use \(\J=-en_0\mathbf v_1\) in the linearized
+continuity equation:
+\begin{align}
+    \partial_t n_1+n_0\nabla\!\cdot\mathbf v_1&=0,\\
+    \partial_t n_1-\frac{1}{e}\nabla\!\cdot\!\J&=0.
+    \label{eq:n1-continuity-J}
+\end{align}
+Therefore,
+\begin{equation}
+    \partial_t n_1=\frac{1}{e}\nabla\!\cdot\!\J.
+    \label{eq:n1-time-J}
+\end{equation}
+The pressure contribution after multiplication by \(-e n_0\) is
+\begin{equation}
+    (-e n_0)\left(-\frac{\beta^2}{n_0}\nabla n_1\right)
+    =e\beta^2\nabla n_1.
+    \label{eq:pressure-current-term}
+\end{equation}
+
+In the frequency domain, Eq.~\eqref{eq:n1-continuity-J} gives
+\begin{equation}
+    -\ii\omega n_1=\frac{1}{e}\nabla\!\cdot\!\J,
+    \qquad
+    n_1=\frac{\ii}{e\omega}\nabla\!\cdot\!\J.
+    \label{eq:n1-frequency}
+\end{equation}
+Consequently,
+\begin{equation}
+    e\beta^2\nabla n_1
+    =\frac{\ii\beta^2}{\omega}
+      \nabla\!\left(\nabla\!\cdot\!\J\right).
+    \label{eq:pressure-frequency-current}
+\end{equation}
+
+The frequency-domain current equation is therefore
+\begin{equation}
+    (\gamma-\ii\omega)\J
+    =\epsilon_0\omegap^2\E
+    +\frac{\ii\beta^2}{\omega}
+      \nabla\!\left(\nabla\!\cdot\!\J\right).
+    \label{eq:current-before-final}
+\end{equation}
+Multiplying by \(\ii\omega\) gives
+\begin{equation}
+    \boxed{
+    \beta^2\nabla\!\left(\nabla\!\cdot\!\J\right)
+    +\omega(\omega+\ii\gamma)\J
+    =\ii\omega\epsilon_0\omegap^2\E.
+    }
+    \label{eq:current-final-derived}
+\end{equation}
+
+The sign of the pressure term is worth interpreting.  In Fourier space,
+\(\nabla\to\ii\mathbf k\), so
+\begin{equation}
+    \nabla(\nabla\!\cdot\!\J)
+    \longrightarrow
+    -\mathbf k(\mathbf k\!\cdot\!\J).
+    \label{eq:grad-div-fourier}
+\end{equation}
+For a longitudinal current, this is \(-k^2\J_L\).  The pressure term thus
+opposes short-wavelength compression and changes the longitudinal resonance
+condition by a positive term \(\beta^2 k^2\) in the dispersion relation.
+
+\subsection{Local Drude limit and polarization form}
+
+If \(\beta=0\), Eq.~\eqref{eq:current-final-derived} becomes
+\begin{equation}
+    \J=\frac{\ii\epsilon_0\omegap^2}{\omega+\ii\gamma}\E
+    \equiv\sigma_D(\omega)\E,
+    \label{eq:drude-from-hdm}
+\end{equation}
+which is precisely the local Drude current.
+
+The free-electron polarization is defined by
+\begin{equation}
+    \J=\partial_t\Pfield_f=-\ii\omega\Pfield_f,
+    \qquad
+    \Pfield_f=\frac{\J}{-\ii\omega}.
+    \label{eq:free-polarization-current}
+\end{equation}
+The total displacement inside the metal is split as
+\begin{equation}
+    \Dfield_m
+    =\epsilon_0\epsinf\E+\Pfield_f.
+    \label{eq:D-split}
+\end{equation}
+The first term is the local background response; the second is the response
+of the hydrodynamic conduction electrons.
+
+In the local limit, substituting Eq.~\eqref{eq:drude-from-hdm} into
+Eq.~\eqref{eq:free-polarization-current} gives
+\begin{equation}
+    \Pfield_f
+    =-\epsilon_0
+      \frac{\omegap^2}{\omega(\omega+\ii\gamma)}\E.
+    \label{eq:local-free-polarization}
+\end{equation}
+Therefore the familiar local Drude permittivity is
+\begin{equation}
+    \boxed{
+    \eps_D(\omega)
+    =\epsinf-
+      \frac{\omegap^2}{\omega(\omega+\ii\gamma)}.
+    }
+    \label{eq:drude-permittivity}
+\end{equation}
+
+\section{What should \texorpdfstring{$\beta$}{beta} be?}
+
+The hydrodynamic equation itself does not determine \(\beta\).  It is a
+long-wavelength closure of a microscopic electron response, so its value
+depends on which limit of the electron gas one is trying to reproduce.
+
+\subsection{Static compressibility: \texorpdfstring{$\beta^2=\vF^2/3$}{beta2=vF2/3}}
+
+For a three-dimensional ideal Fermi gas at zero temperature,
+\begin{equation}
+    n=\frac{k_F^3}{3\pi^2},
+    \qquad
+    \vF=\frac{\hbar k_F}{m},
+    \qquad
+    E_F=\frac{1}{2}m\vF^2.
+    \label{eq:fermi-definitions}
+\end{equation}
+Its pressure is
+\begin{equation}
+    p=\frac{2}{5}nE_F.
+    \label{eq:fermi-pressure}
+\end{equation}
+Since \(E_F\propto n^{2/3}\), differentiation gives
+\begin{align}
+    \frac{\partial p}{\partial n}
+    &=\frac{2}{3}E_F
+      =\frac{1}{3}m\vF^2,\\
+    \beta_{\mathrm{static}}^2
+    &=\frac{1}{m}\frac{\partial p}{\partial n}
+      =\frac{\vF^2}{3}.
+    \label{eq:beta-static}
+\end{align}
+
+This is the equilibrium compressibility: it asks how much pressure is produced
+by a slowly varying change in density after the electron gas has time to
+re-equilibrate locally.
+
+\subsection{Collisionless optical response: \texorpdfstring{$\beta^2=3\vF^2/5$}{beta2=3vF2/5}}
+
+At optical frequencies, the perturbation can be collisionless on the time
+scale of the oscillation.  The electron distribution then responds through
+Fermi-surface kinematics rather than through static thermodynamic compression.
+The long-wavelength expansion of the collisionless Lindhard response has the
+form
+\begin{equation}
+    \eps_L(k,\omega)-1
+    \simeq
+    -\frac{\omegap^2}{\omega^2}
+    \left[1+\frac{3}{5}\frac{k^2\vF^2}{\omega^2}+\cdots\right].
+    \label{eq:lindhard-expansion}
+\end{equation}
+The corresponding bulk-plasmon dispersion is
+\begin{equation}
+    \omega^2
+    =\omegap^2+\frac{3}{5}\vF^2 k^2+\cdots
+    \qquad (\epsinf=1,\ \gamma=0).
+    \label{eq:collisionless-dispersion}
+\end{equation}
+Matching the hydrodynamic dispersion to this expansion gives
+\begin{equation}
+    \boxed{\beta_{\mathrm{collisionless}}^2=\frac{3}{5}\vF^2.}
+    \label{eq:beta-collisionless}
+\end{equation}
+
+The factors \(1/3\) and \(3/5\) are therefore not contradictory estimates of
+one universal number.  They describe different limits:
+\begin{equation}
+    \frac{1}{3}\vF^2
+    \quad\text{comes from static compressibility},
+    \qquad
+    \frac{3}{5}\vF^2
+    \quad\text{from collisionless dynamic response}.
+    \label{eq:beta-two-limits}
+\end{equation}
+
+For optical plasmonics, the conventional vanilla HDM choice is often
+\(\beta^2=3\vF^2/5\), because the relevant response is usually closer to the
+collisionless regime.  The static value is also used when the model is meant
+to represent a quasi-static compressibility.
+
+\subsection{A frequency-dependent interpolation}
+
+A more refined long-wavelength matching to a conserving relaxation-time
+response gives the Halevi interpolation \cite{Halevi1995,Mermin1970}.  With
+the present convention and a relaxation rate \(\gamma\), it can be written
+as
+\begin{equation}
+    \boxed{
+    \beta^2(\omega)
+    =\vF^2
+      \frac{\frac{3}{5}\omega+\frac{\ii\gamma}{3}}
+           {\omega+\ii\gamma}.
+    }
+    \label{eq:halevi-beta}
+\end{equation}
+Indeed,
+\begin{align}
+    \omega\gg\gamma&:\quad
+    \beta^2(\omega)\longrightarrow\frac{3}{5}\vF^2,\\
+    \omega\ll\gamma&:\quad
+    \beta^2(\omega)\longrightarrow\frac{1}{3}\vF^2.
+    \label{eq:halevi-limits}
+\end{align}
+
+The interpolation is not an arbitrary linear blend.  It is obtained by
+matching the order-\(k^2\) expansion of the hydrodynamic response to a kinetic
+relaxation-time response with the Mermin correction, which preserves local
+particle-number conservation.  At intermediate \(\omega/\gamma\), \(\beta^2\)
+is complex.  This means that the pressure-like part of the response is not
+exactly in phase with the density; collisions produce a phase lag.
+
+In practice there are two separate approximations here:
+\begin{enumerate}
+    \item a long-wavelength expansion in \(k\); and
+    \item a frequency interpolation in \(\omega/\gamma\).
+\end{enumerate}
+The standard vanilla implementation usually takes \(\beta\) to be a real
+constant, most commonly \(\sqrt{3/5}\,\vF\).  Using Eq.~\eqref{eq:halevi-beta}
+makes the hydrodynamic coefficient frequency-dependent and possibly complex,
+which is allowed but is a more refined constitutive model.
+
+\section{Transverse and longitudinal response in a homogeneous metal}
+
+\subsection{The decomposition is relative to a spatial wavevector}
+
+Consider a homogeneous region and a Fourier component with wavevector
+\(\mathbf k\).  Any vector field can be decomposed as
+\begin{equation}
+    \E=\E_T+\E_L,
+    \qquad
+    \J=\J_T+\J_L,
+    \label{eq:T-L-decomposition}
+\end{equation}
+where
+\begin{equation}
+    \mathbf k\!\cdot\!\E_T=0,
+    \quad
+    \mathbf k\times\E_L=0,
+    \qquad
+    \mathbf k\!\cdot\!\J_T=0,
+    \quad
+    \mathbf k\times\J_L=0.
+    \label{eq:T-L-definitions}
+\end{equation}
+Thus longitudinal means parallel to the relevant spatial wavevector.  It
+does not mean parallel to the propagation direction of an externally incident
+electromagnetic wave unless those directions happen to coincide.
+
+In a finite nanoparticle there need not be one unique wavevector.  The
+transverse/longitudinal language then refers to the Helmholtz decomposition or
+to the modal Fourier components of the fields.  For a planar interface, the
+in-plane wavevector is conserved, but the transverse and longitudinal modes
+usually have different normal wavevectors.
+
+\subsection{Transverse current: unchanged Drude response}
+
+In Fourier space,
+\begin{equation}
+    \nabla(\nabla\!\cdot\!\J)
+    \longrightarrow -\mathbf k(\mathbf k\!\cdot\!\J).
+    \label{eq:pressure-fourier-again}
+\end{equation}
+For the transverse part, \(\mathbf k\!\cdot\!\J_T=0\), so the pressure term
+vanishes.  Equation~\eqref{eq:current-final-derived} becomes
+\begin{equation}
+    \J_T
+    =\frac{\ii\epsilon_0\omegap^2}{\omega+\ii\gamma}\E_T.
+    \label{eq:JT}
+\end{equation}
+Therefore
+\begin{equation}
+    \boxed{\epst(\omega)=\eps_D(\omega).}
+    \label{eq:epsilon-transverse}
+\end{equation}
+The hydrodynamic correction does not modify a divergence-free transverse
+current in a homogeneous bulk.
+
+\subsection{Longitudinal current: nonlocal response}
+
+For the longitudinal part,
+\(\nabla(\nabla\!\cdot\!\J_L)\to-k^2\J_L\).  The current equation gives
+\begin{equation}
+    \left[\omega(\omega+\ii\gamma)-\beta^2k^2\right]\J_L
+    =\ii\omega\epsilon_0\omegap^2\E_L.
+    \label{eq:JL-equation}
+\end{equation}
+Hence
+\begin{equation}
+    \J_L
+    =\frac{\ii\omega\epsilon_0\omegap^2}
+           {\omega(\omega+\ii\gamma)-\beta^2k^2}\E_L.
+    \label{eq:JL-response}
+\end{equation}
+Using \(\Dfield=\epsilon_0\epsinf\E+\Pfield_f\) and
+\(\Pfield_f=\J/(-\ii\omega)\), the longitudinal dielectric function is
+\begin{equation}
+    \boxed{
+    \epsl(k,\omega)
+    =\epsinf-
+      \frac{\omegap^2}
+      {\omega(\omega+\ii\gamma)-\beta^2k^2}.
+    }
+    \label{eq:epsilon-longitudinal}
+\end{equation}
+This is spatial dispersion: the response depends on both frequency and
+wavevector.
+
+\subsection{Bulk longitudinal plasmons}
+
+A longitudinal bulk mode has \(\Hfield_L=0\) and, in the absence of an
+external charge, satisfies
+\begin{equation}
+    \nabla\!\cdot\!\Dfield=0.
+    \label{eq:longitudinal-gauss}
+\end{equation}
+For a nonzero longitudinal electric field this requires
+\(\epsl(k,\omega)=0\).  Therefore
+\begin{equation}
+    \boxed{
+    \omega(\omega+\ii\gamma)
+    =\frac{\omegap^2}{\epsinf}+\beta^2k^2.
+    }
+    \label{eq:bulk-hdm-dispersion}
+\end{equation}
+Without damping,
+\begin{equation}
+    \omega_L(k)=
+    \sqrt{\frac{\omegap^2}{\epsinf}+\beta^2k^2}.
+    \label{eq:bulk-hdm-dispersion-lossless}
+\end{equation}
+
+This is the bulk plasmon branch supplied by HDM.  Local Drude theory has the
+formal condition \(\eps_D(\omega)=0\), but because it contains no \(k^2\) term
+it cannot determine a longitudinal wavelength or spatial profile.
+
+\section{Incident field, total field, and the origin of the longitudinal drive}
+
+It is useful to separate three ideas that are often accidentally conflated.
+
+\subsection{Incident electromagnetic wave}
+
+For a homogeneous incident plane wave,
+\begin{equation}
+    \E_{\mathrm{inc}}(\mathbf r)
+    =\E_0\ee^{\ii\mathbf k_{\mathrm{inc}}\cdot\mathbf r},
+    \qquad
+    \mathbf k_{\mathrm{inc}}\!\cdot\!\E_0=0.
+    \label{eq:incident-plane-wave}
+\end{equation}
+It is transverse relative to its own propagation wavevector.  In homogeneous
+bulk, the induced local Drude current is also transverse and therefore has
+\(\nabla\!\cdot\!\J=0\).  There is no bulk charge-density wave at that same
+plane-wave wavevector.
+
+At normal incidence on an infinite planar interface, take
+\(\mathbf k_{\mathrm{inc}}=k\hat{\mathbf z}\) and tangential electric field
+\(\E_0\parallel\) interface.  Even if the tangential current varies with
+depth because of attenuation,
+\begin{equation}
+    \nabla\!\cdot\!\J
+    =\partial_zJ_z+\nabla_\parallel\!\cdot\!\J_\parallel=0
+    \label{eq:normal-incidence-no-charge}
+\end{equation}
+for the ideal translationally invariant problem: \(J_z=0\) and the tangential
+current has no in-plane divergence.  Energy can still be dissipated through
+\(\gamma\); charge compression is simply not required.
+
+\subsection{Oblique incidence and boundary launching}
+
+For oblique TM incidence at a planar interface,
+\begin{equation}
+    \mathbf k_{\mathrm{inc}}=(q,0,k_{z,\mathrm{inc}}),
+    \qquad
+    \E_0=(E_x,0,E_z),
+    \qquad
+    qE_x+k_{z,\mathrm{inc}}E_z=0.
+    \label{eq:TM-incident}
+\end{equation}
+The normal field component drives a normal current.  The hard wall prevents
+that current from crossing the interface:
+\begin{equation}
+    J_{z,T}(0)+J_{z,L}(0)=0.
+    \label{eq:current-cancellation-wall}
+\end{equation}
+The longitudinal component is therefore generated self-consistently so that
+the total normal electron flux vanishes.  This is the precise sense in which
+the boundary launches the longitudinal HDM response.
+
+The longitudinal mode has
+\begin{equation}
+    \mathbf k_L=(q,0,k_{z,L}),
+    \qquad
+    \E_L\parallel\mathbf k_L,
+    \label{eq:planar-longitudinal-wavevector}
+\end{equation}
+but \(k_{z,L}\) is determined by the longitudinal dispersion
+Eq.~\eqref{eq:bulk-hdm-dispersion}, not by the incident electromagnetic
+dispersion.  Only the tangential momentum \(q\) is shared by the fields due to
+translational invariance along the interface.  Consequently,
+\begin{equation}
+    \boxed{\E_0\parallel\mathbf k_L\text{ is not a general relation}.}
+    \label{eq:no-general-parallel}
+\end{equation}
+
+The longitudinal field is not a second externally incident electromagnetic
+wave.  It is part of \(\E_{\mathrm{tot}}\), produced by the induced charge and
+required by the boundary condition.
+
+\section{Surface charge in local Drude theory and finite-width charge in HDM}
+
+\subsection{Why local Drude theory has surface charge}
+
+Let a planar metal occupy \(z<0\).  In local Drude theory the current can be
+written schematically as
+\begin{equation}
+    \J(\mathbf r)=\Theta(-z)\J_m(\mathbf r),
+    \label{eq:step-current}
+\end{equation}
+where \(\Theta\) is the step function.  Its divergence is
+\begin{align}
+    \nabla\!\cdot\!\J
+    &=\nabla\!\cdot\!\left[\Theta(-z)\J_m\right]\\
+    &=\Theta(-z)\nabla\!\cdot\!\J_m
+      -J_{m,z}(0)\delta(z).
+    \label{eq:step-current-divergence}
+\end{align}
+The delta function is the mathematical representation of an induced surface
+charge:
+\begin{equation}
+    \rho_f=\rho_{\mathrm{vol}}+\sigma_s(x,y)\delta(z),
+    \qquad
+    \sigma_s=-\frac{J_{m,z}(0)}{\ii\omega}.
+    \label{eq:local-surface-charge}
+\end{equation}
+
+Thus surface charge does not mean that local Drude theory violates charge
+continuity.  The charge appears because the current is terminated at the
+geometrical boundary.  Local Drude has no pressure-gradient energy and no
+microscopic length with which to resolve the termination, so the charge is
+represented as an infinitely thin sheet.
+
+\subsection{Local planar surface plasmon}
+
+In the quasistatic limit, take potentials of the form
+\begin{equation}
+    \phi_m=A\ee^{\ii qx+qz},\quad z<0,
+    \qquad
+    \phi_d=A\ee^{\ii qx-qz},\quad z>0.
+    \label{eq:surface-potentials}
+\end{equation}
+Both potentials satisfy Laplace's equation away from the interface, so there
+is no volume charge in either homogeneous region.  Nevertheless, the fields
+are normal to the interface with opposite signs:
+\begin{equation}
+    E_{m,z}(0)=-qA,
+    \qquad
+    E_{d,z}(0)=+qA.
+    \label{eq:surface-normal-fields}
+\end{equation}
+Continuity of the normal displacement gives
+\begin{equation}
+    \eps_D(\omega)E_{m,z}=\epsd E_{d,z},
+    \qquad
+    \boxed{\eps_D(\omega)+\epsd=0.}
+    \label{eq:local-surface-plasmon-condition}
+\end{equation}
+For a lossless Drude metal,
+\begin{equation}
+    \eps_D(\omega)=\epsinf-\frac{\omegap^2}{\omega^2},
+    \qquad
+    \omega_{\mathrm{sp}}
+    =\frac{\omegap}{\sqrt{\epsinf+\epsd}}.
+    \label{eq:surface-plasmon-frequency}
+\end{equation}
+
+The surface plasmon is a self-consistent oscillation: the charge produces an
+electric field, the field drives electron motion, and the resulting current
+recreates the charge.  The Coulomb restoring force is sufficient for this
+mode; HDM is not needed for its existence.
+
+\subsection{What HDM changes}
+
+In HDM the pressure force penalizes a sharp density gradient.  The charge that
+was a delta-function sheet in local Drude theory becomes a narrow dynamical
+layer inside the metal.  To see its characteristic scale, take the divergence
+of Eq.~\eqref{eq:current-final-derived}:
+\begin{equation}
+    \beta^2\nabla^2(\nabla\!\cdot\!\J)
+    +\omega(\omega+\ii\gamma)\nabla\!\cdot\!\J
+    =\ii\omega\epsilon_0\omegap^2\nabla\!\cdot\!\E.
+    \label{eq:div-current-equation}
+\end{equation}
+Using \(\nabla\!\cdot\!\J=\ii\omega\rho_f\), we need a relation between
+\(\nabla\!\cdot\!\E\) and \(\rho_f\).  In the absence of externally imposed
+free charge, Ampere's law implies
+\begin{equation}
+    \nabla\!\cdot\!\J
+    =\ii\omega\epsilon_0\epsinf\nabla\!\cdot\!\E,
+    \label{eq:divJ-divE}
+\end{equation}
+and therefore
+\begin{equation}
+    \rho_f=\epsilon_0\epsinf\nabla\!\cdot\!\E.
+    \label{eq:rho-divE}
+\end{equation}
+Substitution into Eq.~\eqref{eq:div-current-equation} yields
+\begin{equation}
+    \boxed{
+    \left[
+      \beta^2\nabla^2
+      +\omega(\omega+\ii\gamma)
+      -\frac{\omegap^2}{\epsinf}
+    \right]\rho_f=0.
+    }
+    \label{eq:rho-wave-equation}
+\end{equation}
+Equivalently,
+\begin{equation}
+    \left(\nabla^2+k_L^2\right)\rho_f=0,
+    \qquad
+    k_L^2=
+    \frac{\omega(\omega+\ii\gamma)-\omegap^2/\epsinf}{\beta^2}.
+    \label{eq:rho-kL}
+\end{equation}
+
+For frequencies below the bulk longitudinal-plasmon frequency, \(k_L^2\) is
+typically negative.  Writing \(k_L=\ii\kappa_L\), the density decays into the
+metal over
+\begin{equation}
+    \ell_L\sim\kappa_L^{-1},
+    \qquad
+    \kappa_L^2\simeq
+    \frac{\omegap^2/\epsinf-\omega(\omega+\ii\gamma)}{\beta^2}.
+    \label{eq:charge-layer-length}
+\end{equation}
+The rough scale \(\beta/\omegap\) is often quoted, although the precise decay
+length depends on frequency, \(\epsinf\), damping, and geometry.
+
+The distinction can be summarized as follows.
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.43\textwidth}
+                >{\raggedright\arraybackslash}p{0.43\textwidth}}
+\toprule
+\textbf{Local Drude theory} & \textbf{Hard-wall HDM}\\
+\midrule
+Surface charge represented by \(\sigma_s\delta(s)\) &
+Induced charge occupies a finite layer inside the metal\\
+No pressure length scale &
+Pressure introduces the scale \(\ell_L\sim\beta/\omegap\)\\
+Surface plasmons exist through Coulomb restoring force &
+Surface plasmons are shifted and coupled to longitudinal response\\
+Formal bulk-plasmon frequency but no finite-\(k\) branch &
+Bulk longitudinal plasmons disperse as \(\omega^2\sim\omegap^2/\epsinf+\beta^2k^2\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The hard-wall charge layer is confined to the metal side of the geometrical
+surface.  This is different from self-consistent hydrodynamic or quantum
+hydrodynamic models, where the equilibrium density can spill out and the
+induced charge can extend into the dielectric region.
+
+\section{Eliminating \texorpdfstring{$\J$}{J}: an electric-field-only equation}
+
+Many numerical implementations solve directly for \(\E\).  We now derive the
+corresponding equation carefully, because the term
+\(\nabla(\nabla\!\cdot\!\E)\) comes specifically from eliminating \(\J\) with
+Maxwell's equations.
+
+\subsection{Maxwell equations inside the metal}
+
+With the convention \eqref{eq:time-convention}, Maxwell's equations are
+\begin{align}
+    \nabla\!\times\!\E&=\ii\omega\mu_0\Hfield,
+    \label{eq:faraday-frequency}\\
+    \nabla\!\times\!\Hfield
+    &=\J-\ii\omega\epsilon_0\epsinf\E.
+    \label{eq:ampere-frequency}
+\end{align}
+The second equation contains the conduction current separately because the
+background polarization has already been included in \(\epsinf\).
+
+Use Faraday's law to write
+\begin{equation}
+    \Hfield=\frac{1}{\ii\omega\mu_0}\nabla\!\times\!\E.
+    \label{eq:H-from-E}
+\end{equation}
+Substitute this into Ampere's law:
+\begin{align}
+    \frac{1}{\ii\omega\mu_0}
+    \nabla\!\times\!\nabla\!\times\!\E
+    &=\J-\ii\omega\epsilon_0\epsinf\E,\\
+    \J
+    &=\frac{1}{\ii\omega\mu_0}
+      \left[
+        \nabla\!\times\!\nabla\!\times\!\E
+        -\epsinf k_0^2\E
+      \right],
+    \qquad
+    k_0=\frac{\omega}{c}.
+    \label{eq:J-from-E}
+\end{align}
+This is the exact Maxwell relation used to remove \(\J\).
+
+Now take the divergence.  Since the divergence of any curl is zero,
+\begin{align}
+    \nabla\!\cdot\!\J
+    &=\frac{1}{\ii\omega\mu_0}
+      \left[
+        \underbrace{\nabla\!\cdot\!
+        (\nabla\!\times\!\nabla\!\times\!\E)}_{0}
+        -\epsinf k_0^2\nabla\!\cdot\!\E
+      \right]\\
+    &=-\frac{\epsinf k_0^2}{\ii\omega\mu_0}
+      \nabla\!\cdot\!\E
+     =\ii\omega\epsilon_0\epsinf
+      \nabla\!\cdot\!\E.
+    \label{eq:divJ-from-E}
+\end{align}
+The last equality uses \(k_0^2=\omega^2\mu_0\epsilon_0\).
+
+\subsection{Substitution into the hydrodynamic equation}
+
+Divide the current equation \eqref{eq:current-final-derived} by
+\(\omega(\omega+\ii\gamma)\).  Defining
+\begin{equation}
+    a\equiv\frac{\beta^2}{\omega(\omega+\ii\gamma)},
+    \label{eq:a-definition}
+\end{equation}
+we have
+\begin{equation}
+    a\nabla(\nabla\!\cdot\!\J)+\J=\sigma_D\E.
+    \label{eq:current-a-form}
+\end{equation}
+Using Eq.~\eqref{eq:divJ-from-E}, the current can equivalently be written
+\begin{align}
+    \J
+    &=\sigma_D\E-a\nabla(\nabla\!\cdot\!\J)\\
+    &=\sigma_D\E
+      -\frac{\ii\epsilon_0\epsinf\beta^2}{\omega+\ii\gamma}
+       \nabla(\nabla\!\cdot\!\E).
+    \label{eq:J-electric-constitutive}
+\end{align}
+This equation already shows that the correction is purely longitudinal: if
+\(\nabla\!\cdot\!\E=0\), it reduces to local Drude response.
+
+Substitute Eq.~\eqref{eq:J-from-E} and Eq.~\eqref{eq:divJ-from-E} directly
+into Eq.~\eqref{eq:current-a-form}:
+\begin{align}
+    &\frac{1}{\ii\omega\mu_0}
+      \left[\nabla\!\times\!\nabla\!\times\!\E
+      -\epsinf k_0^2\E\right]
+    -a\frac{\epsinf k_0^2}{\ii\omega\mu_0}
+      \nabla(\nabla\!\cdot\!\E)
+    =\sigma_D\E.
+    \label{eq:substitution-before-multiply}
+\end{align}
+Multiplying by \(\ii\omega\mu_0\) gives
+\begin{equation}
+    \nabla\!\times\!\nabla\!\times\!\E
+    -\epsinf k_0^2\E
+    -a\epsinf k_0^2\nabla(\nabla\!\cdot\!\E)
+    =\ii\omega\mu_0\sigma_D\E.
+    \label{eq:E-equation-intermediate}
+\end{equation}
+Now
+\begin{equation}
+    \ii\omega\mu_0\sigma_D
+    =-k_0^2\frac{\omegap^2}{\omega(\omega+\ii\gamma)}.
+    \label{eq:sigma-conversion}
+\end{equation}
+Combining the two local terms produces \(\eps_D\), and we obtain
+\begin{equation}
+    \boxed{
+    \nabla\!\times\!\nabla\!\times\!\E
+    -k_0^2\eps_D(\omega)\E
+    =\frac{\epsinf k_0^2\beta^2}
+           {\omega(\omega+\ii\gamma)}
+      \nabla(\nabla\!\cdot\!\E).
+    }
+    \label{eq:E-only-HDM}
+\end{equation}
+
+The term on the right is absent in local electrodynamics.  It is precisely the
+electric-field representation of the pressure response.  Since
+\(\nabla\!\cdot\!\E_T=0\), it acts only on \(\E_L\).  The field in this
+equation is the total field, not just the incident field.
+
+\section{Boundary conditions for the hard-wall model}
+
+The hydrodynamic equation is a higher-order spatial equation than local Drude
+theory, so Maxwell's usual interface conditions are not sufficient by
+themselves.  The electron fluid supplies one additional boundary condition.
+
+\subsection{Maxwell boundary conditions}
+
+Assume no externally imposed singular surface current or external free surface
+charge.  The integral Maxwell laws give
+\begin{align}
+    \nvec\times(\E_d-\E_m)&=0,
+    \label{eq:bc-E-tangential}\\
+    \nvec\times(\Hfield_d-\Hfield_m)&=0,
+    \label{eq:bc-H-tangential}\\
+    \nvec\!\cdot(\Bfield_d-\Bfield_m)&=0,
+    \label{eq:bc-B-normal}\\
+    \nvec\!\cdot(\Dfield_d-\Dfield_m)&=0.
+    \label{eq:bc-D-normal}
+\end{align}
+The last equation is written for the total displacement, including the
+hydrodynamic free-electron polarization inside the metal.
+
+Outside the metal,
+\begin{equation}
+    \Dfield_d=\epsilon_0\epsd\E_d.
+    \label{eq:D-outside}
+\end{equation}
+Inside,
+\begin{equation}
+    \Dfield_m=\epsilon_0\epsinf\E_m+\Pfield_f,
+    \qquad
+    \Pfield_f=\frac{\J}{-\ii\omega}.
+    \label{eq:D-inside-again}
+\end{equation}
+
+\subsection{Derivation of the hard-wall additional boundary condition}
+
+The hard-wall assumption is a statement about particle transport:
+\begin{equation}
+    \boxed{\nvec\!\cdot\!\J_m=0.}
+    \label{eq:bc-hard-wall-J}
+\end{equation}
+Because \(\J=-\ii\omega\Pfield_f\), this is equivalent for \(\omega\neq0\)
+to
+\begin{equation}
+    \boxed{\nvec\!\cdot\!\Pfield_f=0.}
+    \label{eq:bc-hard-wall-P}
+\end{equation}
+Insert this into the normal-displacement condition:
+\begin{align}
+    \nvec\!\cdot\!\Dfield_d
+    &=\nvec\!\cdot\!\Dfield_m,\\
+    \epsilon_0\epsd E_{d,n}
+    &=\epsilon_0\epsinf E_{m,n}+P_{f,n},\\
+    \boxed{\epsd E_{d,n}=\epsinf E_{m,n}.}
+    \label{eq:bc-normal-E-final}
+\end{align}
+For vacuum outside, \(\epsd=1\), so
+\begin{equation}
+    E_{d,n}=\epsinf E_{m,n}.
+    \label{eq:vacuum-normal-E}
+\end{equation}
+
+The electric field inside the metal is therefore not multiplied by
+\(\epsinf\).  Rather, the normal boundary relation contains \(\epsinf\)
+because the normal component of the conduction-electron polarization vanishes
+at a hard wall.  The remaining normal displacement is the background part
+\(\epsilon_0\epsinf\E_m\).
+
+The standard hard-wall interface conditions can consequently be listed as
+\begin{equation}
+    \boxed{
+    \begin{aligned}
+        \nvec\times(\E_d-\E_m)&=0,\\
+        \nvec\times(\Hfield_d-\Hfield_m)&=0,\\
+        \epsd E_{d,n}&=\epsinf E_{m,n},\\
+        \nvec\!\cdot\!\J_m&=0.
+    \end{aligned}}
+    \label{eq:all-hard-wall-bcs}
+\end{equation}
+
+The last condition is the additional boundary condition (ABC) required by
+HDM.  It is a no-flux condition, not a no-field condition:
+\begin{equation}
+    \nvec\!\cdot\!\J=0
+    \quad\not\Rightarrow\quad
+    \nvec\!\cdot\!\E=0.
+    \label{eq:no-flux-not-no-field}
+\end{equation}
+
+\subsection{Electric-field-only form of the ABC}
+
+When solving the electric-field equation \eqref{eq:E-only-HDM}, one can
+replace \(\J\) using Eq.~\eqref{eq:J-from-E}.  The hard-wall condition becomes
+\begin{equation}
+    \boxed{
+    \nvec\!\cdot
+    \left[
+      \nabla\!\times\!\nabla\!\times\!\E_m
+      -\epsinf k_0^2\E_m
+    \right]=0.
+    }
+    \label{eq:E-only-ABC}
+\end{equation}
+The omitted prefactor \(1/(\ii\omega\mu_0)\) is nonzero and therefore does
+not affect the zero condition.
+
+\subsection{Two bookkeeping conventions for surface charge}
+
+There are two equivalent ways to describe interface charge, provided one does
+not mix conventions.
+
+In the total-displacement convention used above, the hydrodynamic conduction
+electrons are included in \(\Dfield_m\), so there is no externally imposed
+delta-function sheet in the normal \(\Dfield\) boundary condition.  Their
+charge is encoded in \(\nabla\!\cdot\!\Pfield_f\) inside the metal.
+
+Alternatively, one may treat \(\Pfield_f\) as a separate polarization and
+write its divergence explicitly as the conduction-electron charge.  In local
+Drude theory the sharp step in \(\Pfield_f\) produces a delta-function sheet.
+In hard-wall HDM, \(P_{f,n}=0\) prevents such a singular normal-polarization
+jump at the ideal wall, while the pressure term resolves the charge into a
+finite-width volume layer just inside the metal.
+
+\section{What exactly is \texorpdfstring{$\epsinf$}{epsilon-infinity}?}
+
+\subsection{Physical meaning}
+
+The decomposition
+\begin{equation}
+    \Dfield_m=\epsilon_0\epsinf\E+\Pfield_f
+    \label{eq:epsinf-decomposition}
+\end{equation}
+separates two electronic responses:
+\begin{enumerate}
+    \item \(\Pfield_f\): the explicitly modeled mobile conduction-electron
+    fluid; and
+    \item \(\epsilon_0(\epsinf-1)\E\): a local background polarization due
+    to bound/core electrons and interband transitions that are not included in
+    the hydrodynamic fluid.
+\end{enumerate}
+
+For an ideal jellium gas in vacuum, there are no bound electrons in the model,
+so
+\begin{equation}
+    \epsinf=1.
+    \label{eq:jellium-epsinf}
+\end{equation}
+For a real metal, \(\epsinf\) is generally an effective material parameter.
+It is not the full measured metal permittivity at the operating frequency.
+The Drude part must not be counted twice.
+
+\subsection{How \texorpdfstring{$\epsinf$}{epsilon-infinity} is obtained}
+
+In the simplest Drude--HDM model, one fits the measured complex permittivity
+over a selected frequency window to
+\begin{equation}
+    \eps_{\mathrm{exp}}(\omega)
+    \simeq
+    \epsinf-
+    \frac{\omegap^2}{\omega(\omega+\ii\gamma)}.
+    \label{eq:epsinf-fit}
+\end{equation}
+Depending on what is known independently, one may fit \(\epsinf\),
+\(\omegap\), and \(\gamma\) simultaneously, or fix \(\omegap\) and
+\(\gamma\) and fit only the background.
+
+Equivalently, a provisional value can be extracted at a given frequency as
+\begin{equation}
+    \epsinf
+    \simeq
+    \eps_{\mathrm{exp}}(\omega)
+    +\frac{\omegap^2}{\omega(\omega+\ii\gamma)},
+    \label{eq:epsinf-extraction}
+\end{equation}
+although fitting over a frequency interval is more reliable.
+
+If interband transitions are important, they should be modeled explicitly,
+for example with a Drude--Lorentz form:
+\begin{equation}
+    \eps(\omega)
+    =\epsinf-
+    \frac{\omegap^2}{\omega(\omega+\ii\gamma)}
+    +\sum_j\frac{f_j}
+    {\omega_j^2-\omega^2-\ii\Gamma_j\omega}.
+    \label{eq:drude-lorentz}
+\end{equation}
+In that case \(\epsinf\) is the residual high-frequency local background
+after the explicitly included Drude and Lorentz contributions have been
+separated.  In a fully realistic material model it can itself be complex and
+frequency-dependent.
+
+The practical rule is therefore:
+\begin{equation}
+    \boxed{\epsinf\text{ is fitted or calibrated, not a universal metal constant.}}
+    \label{eq:epsinf-rule}
+\end{equation}
+
+\section{A compact physical picture}
+
+The entire response mechanism can be read as a sequence:
+\begin{enumerate}
+    \item The total electric field drives the conduction-electron current.
+    \item A divergence-free tangential current remains transverse and follows
+    the local Drude response.
+    \item A normal current driven toward a hard wall cannot cross it, so the
+    current must terminate or be redirected near the boundary.
+    \item Current convergence creates charge through
+    \(\rho_f=(\ii\omega)^{-1}\nabla\!\cdot\!\J\).
+    \item The charge creates a self-consistent longitudinal field
+    \(\E_L=-\nabla\phi_L\).
+    \item Coulomb forces produce the familiar surface-plasmon restoring force;
+    finite pressure spreads the charge and adds the longitudinal \(\beta^2k^2\)
+    dispersion.
+    \item The hard-wall condition enforces zero normal electron flux while
+    allowing a nonzero normal electric field.
+\end{enumerate}
+
+The two limiting pictures are therefore compatible:
+\begin{equation}
+    \boxed{
+    \begin{gathered}
+      \text{local Drude: ideal surface-charge sheet}\\[-1mm]
+      \longrightarrow\\[-1mm]
+      \text{HDM: finite-width dynamical charge layer}.
+    \end{gathered}
+    }
+    \label{eq:final-picture}
+\end{equation}
+
+\section{The vanilla hard-wall HDM in one place}
+
+For reference, the model consists of the following ingredients.
+
+\subsection*{Bulk equations inside the metal}
+\begin{align}
+    \nabla\!\times\!\E&=\ii\omega\mu_0\Hfield,\\
+    \nabla\!\times\!\Hfield
+    &=\J-\ii\omega\epsilon_0\epsinf\E,\\
+    \beta^2\nabla(\nabla\!\cdot\!\J)
+    +\omega(\omega+\ii\gamma)\J
+    &=\ii\omega\epsilon_0\omegap^2\E.
+    \label{eq:model-bulk-summary}
+\end{align}
+
+\subsection*{Interface conditions}
+\begin{align}
+    \nvec\times(\E_d-\E_m)&=0,\\
+    \nvec\times(\Hfield_d-\Hfield_m)&=0,\\
+    \epsd E_{d,n}&=\epsinf E_{m,n},\\
+    \nvec\!\cdot\!\J_m&=0.
+    \label{eq:model-bc-summary}
+\end{align}
+
+\subsection*{Material parameters}
+\begin{equation}
+    \omegap^2=\frac{e^2n_0}{m\epsilon_0},
+    \qquad
+    \sigma_D=\frac{\ii\epsilon_0\omegap^2}{\omega+\ii\gamma},
+    \qquad
+    \eps_D=\epsinf-
+    \frac{\omegap^2}{\omega(\omega+\ii\gamma)}.
+    \label{eq:model-parameters-summary}
+\end{equation}
+The coefficient \(\beta\) is chosen according to the response being matched;
+the common collisionless optical choice is
+\(\beta^2=3\vF^2/5\), while static compressibility gives
+\(\beta^2=\vF^2/3\).
+
+\subsection*{What is and is not included}
+
+Vanilla hard-wall HDM includes finite compressibility, nonlocal longitudinal
+response, and a no-flux electron boundary condition.  It does not include:
+\begin{itemize}
+    \item equilibrium-density spill-out;
+    \item tunnelling through a dielectric gap;
+    \item explicit exchange--correlation potentials;
+    \item microscopic surface scattering or Landau damping; or
+    \item a spatially varying equilibrium density.
+\end{itemize}
+Those effects require extensions such as self-consistent quantum hydrodynamics,
+the generalized nonlocal optical response model, quantum-corrected models, or
+surface-response/Feibelman-parameter descriptions.
+
+\begin{thebibliography}{9}
+
+\bibitem{Ritchie1957}
+R.~H. Ritchie,
+\newblock Plasma losses by fast electrons in thin films,
+\newblock \emph{Physical Review} \textbf{106}, 874 (1957).
+
+\bibitem{Boardman1982}
+A.~D. Boardman, ed.,
+\newblock \emph{Electromagnetic Surface Modes},
+\newblock Wiley, Chichester (1982).
+
+\bibitem{Halevi1995}
+P. Halevi,
+\newblock Hydrodynamic model for the study of optical nonlocalities in metals,
+\newblock \emph{Physical Review B} \textbf{51}, 7497 (1995).
+
+\bibitem{Mermin1970}
+N.~D. Mermin,
+\newblock Lindhard dielectric function in the relaxation-time approximation,
+\newblock \emph{Physical Review B} \textbf{1}, 2362 (1970).
+
+\bibitem{Mortensen2014}
+N.~A. Mortensen, S.~Raza, M. Wubs, T. S\o rensen, and S. Bozhevolnyi,
+\newblock A generalized non-local optical response theory for plasmonic nanostructures,
+\newblock \emph{Nature Communications} \textbf{5}, 3809 (2014).
+
+\end{thebibliography}
+
+\end{document}
